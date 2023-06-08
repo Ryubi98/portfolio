@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro-i18next generate && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "translate": "astro-i18next generate"
+  },
+  "dependencies": {
+    "astro": "^2.4.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "astro-compress": "^1.1.46",
+    "astro-i18next": "^1.0.0-beta.21"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "translate",
+      "label": "Translate pages",
+      "presentation": {
+        "focus": true,
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "label": "Build",
+      "presentation": {
+        "focus": true,
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "rm -rf dist/ src/pages/fr/ src/pages/en/",
+      "label": "Clear",
+      "presentation": {
+        "focus": true,
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
