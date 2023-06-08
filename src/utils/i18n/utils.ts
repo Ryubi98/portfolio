@@ -1,31 +1,31 @@
 import { translations } from "@utils/i18n/translations";
-import { prefixBase } from "@utils/global";
+import { isObjKey, prefixBase } from "@utils/global";
 
+export type Lang = keyof typeof translations;
 export type LangParams = {
-  lang: keyof typeof translations | undefined;
+  lang?: Lang;
 };
 
-export const defaultLang = "fr" as keyof typeof translations;
-export const languages = ["fr", "en"] as (keyof typeof translations)[];
+export const defaultLang = "fr";
+export const languages = ["fr", "en"];
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.replace(prefixBase, "").split("/");
-  if (lang in translations) return lang as keyof typeof translations;
+  if (lang in translations) return lang as Lang;
   return undefined;
 }
 
-export function getUrlFromDestinationAndLang(
-  destination: string,
-  lang?: keyof typeof translations
-) {
+export function getUrlFromDestinationAndLang(destination: string, lang?: Lang) {
   const paths = [prefixBase, ...(lang ? [lang] : []), destination];
   return paths.join("/");
 }
 
-export function useTranslations(lang: keyof typeof translations) {
+export function useTranslations(lang: Lang) {
   return function t(key: keyof (typeof translations)[typeof defaultLang]) {
-    //@ts-ignore
-    return translations[lang][key] || translations[defaultLang][key];
+    if (isObjKey(key, translations[lang])) {
+      return translations[lang][key];
+    }
+    return translations[defaultLang][key];
   };
 }
 
