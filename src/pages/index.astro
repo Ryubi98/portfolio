@@ -1,12 +1,5 @@
 ---
-import { changeLanguage, t, setDefaultNamespace } from "i18next";
-import BaseLayout from "@layouts/BaseLayout.astro";
-
-changeLanguage("fr");
-
-setDefaultNamespace("index");
+import Index from "@pages/[lang]/index.astro";
 ---
 
-<BaseLayout title={t("title")} description={t("description")}>
-  {t("content")}
-</BaseLayout>
+<Index />

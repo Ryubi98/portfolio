@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import {
+  getStaticPaths,
+  getUrlFromDestinationAndLang,
+  LangParams,
+} from "@utils/i18n/utils";
+
+export { getStaticPaths };
+
+const { lang } = Astro.params as LangParams;
+---
+
+<BaseLayout title="title" description="description">
+  <h1>Home {lang}</h1>
+  <nav>
+    <a href={getUrlFromDestinationAndLang("")}>Default</a>
+    <a href={getUrlFromDestinationAndLang("", "fr")}>Français</a>
+    <a href={getUrlFromDestinationAndLang("", "en")}>English</a>
+  </nav>
+  <a href={getUrlFromDestinationAndLang("about", lang)}>Go to about</a>
+</BaseLayout>
