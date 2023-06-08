@@ -1,7 +1,11 @@
 :root {
+  --color: #000;
+  --bg-color: #fff;
 }
 
-:root.dark {
+:root.dark-theme {
+  --color: #fff;
+  --bg-color: #000;
 }
 
 *,

@@ -1,17 +1,18 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import MainLayout from "@layouts/MainLayout.astro";
 import {
   getLangStaticPaths,
   getUrlFromDestinationAndLang,
   LangParams,
 } from "@utils/i18n/utils";
+import { darkThemeClass } from "@components/head/ThemeScript.astro";
 
 export { getLangStaticPaths as getStaticPaths };
 
 const { lang } = Astro.params as LangParams;
 ---
 
-<BaseLayout title="title" description="description">
+<MainLayout title="title" description="description">
   <h1>Home {lang}</h1>
   <nav>
     <a href={getUrlFromDestinationAndLang("")}>Default</a>
@@ -19,4 +20,29 @@ const { lang } = Astro.params as LangParams;
     <a href={getUrlFromDestinationAndLang("", "en")}>English</a>
   </nav>
   <a href={getUrlFromDestinationAndLang("about", lang)}>Go to about</a>
-</BaseLayout>
+  <toggle-theme data-dark-theme-class={darkThemeClass}>
+    <button class="button">Theme</button>
+  </toggle-theme>
+</MainLayout>
+
+<style>
+  .button {
+    color: var(--color);
+    background-color: var(--bg-color);
+  }
+</style>
+
+<script>
+  class ToogleTheme extends HTMLElement {
+    constructor() {
+      super();
+      const darkThemeClass = this.dataset.darkThemeClass as string;
+      const button = this.querySelector("button");
+      button?.addEventListener("click", () => {
+        document.documentElement.classList.toggle(darkThemeClass);
+      });
+    }
+  }
+
+  customElements.define("toggle-theme", ToogleTheme);
+</script>

@@ -1,21 +1,40 @@
-<script is:inline>
-  const darkThemeClass = "dark";
+---
+export const themeLocalStorage = "theme";
+export const lightThemeValue = "light";
+export const darkThemeValue = "dark";
+export const darkThemeClass = "dark-theme";
+---
+
+<script
+  define:vars={{
+    themeLocalStorage,
+    lightThemeValue,
+    darkThemeValue,
+    darkThemeClass,
+  }}
+>
   const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
+    if (
+      typeof localStorage !== "undefined" &&
+      localStorage.getItem(themeLocalStorage)
+    ) {
+      return localStorage.getItem(themeLocalStorage);
     }
     return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+      ? darkThemeValue
+      : lightThemeValue;
   };
-  const isDark = getThemePreference() === "dark";
+  const isDark = getThemePreference() === darkThemeValue;
   document.documentElement.classList[isDark ? "add" : "remove"](darkThemeClass);
 
   if (typeof localStorage !== "undefined") {
     const observer = new MutationObserver(() => {
       const isDark =
         document.documentElement.classList.contains(darkThemeClass);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      localStorage.setItem(
+        themeLocalStorage,
+        isDark ? darkThemeValue : lightThemeValue
+      );
     });
     observer.observe(document.documentElement, {
       attributes: true,
