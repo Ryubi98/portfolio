@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import {
-  getStaticPaths,
+  getLangStaticPaths,
   getUrlFromDestinationAndLang,
   LangParams,
 } from "@utils/i18n/utils";
 
-export { getStaticPaths };
+export { getLangStaticPaths as getStaticPaths };
 
 const { lang } = Astro.params as LangParams;
 ---

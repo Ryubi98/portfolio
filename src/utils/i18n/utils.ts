@@ -29,7 +29,7 @@ export function useTranslations(lang: keyof typeof translations) {
   };
 }
 
-export async function getStaticPaths() {
+export async function getLangStaticPaths() {
   return languages.map((lang) => ({
     params: { lang },
   }));
