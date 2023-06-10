@@ -7,7 +7,7 @@ export type LangParams = {
 };
 
 export const defaultLang = "fr";
-export const languages = ["fr", "en"];
+export const slugLang = [undefined, "fr", "en"];
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.replace(prefixBase, "").split("/");
@@ -30,7 +30,7 @@ export function useTranslations(lang: Lang) {
 }
 
 export async function getLangStaticPaths() {
-  return languages.map((lang) => ({
+  return slugLang.map((lang) => ({
     params: { lang },
   }));
 }
