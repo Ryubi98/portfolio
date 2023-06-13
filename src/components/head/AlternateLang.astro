@@ -1,6 +1,6 @@
 ---
-import { prefixBase } from "@utils/global";
-import { defaultLang, getLangFromUrl, slugLang } from "@utils/i18n/utils";
+import { prefixBase } from '@utils/global';
+import { defaultLang, getLangFromUrl, slugLang } from '@utils/i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
 ---
@@ -9,11 +9,8 @@ const currentLang = getLangFromUrl(Astro.url);
   slugLang.map((lang) => (
     <link
       href={`${prefixBase}${Astro.url.pathname
-        .replace(prefixBase, "")
-        .replace(
-          currentLang ? `/${currentLang}` : "",
-          lang ? `/${lang}` : ""
-        )}`}
+        .replace(prefixBase, '')
+        .replace(currentLang ? `/${currentLang}` : '', lang ? `/${lang}` : '')}`}
       rel="alternate"
       hreflang={lang ?? defaultLang}
     />

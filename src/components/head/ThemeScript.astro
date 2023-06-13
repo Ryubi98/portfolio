@@ -1,8 +1,8 @@
 ---
-export const themeLocalStorage = "theme";
-export const lightThemeValue = "light";
-export const darkThemeValue = "dark";
-export const darkThemeClass = "dark-theme";
+export const themeLocalStorage = 'theme';
+export const lightThemeValue = 'light';
+export const darkThemeValue = 'dark';
+export const darkThemeClass = 'dark-theme';
 ---
 
 <script
@@ -14,31 +14,22 @@ export const darkThemeClass = "dark-theme";
   }}
 >
   const getThemePreference = () => {
-    if (
-      typeof localStorage !== "undefined" &&
-      localStorage.getItem(themeLocalStorage)
-    ) {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem(themeLocalStorage)) {
       return localStorage.getItem(themeLocalStorage);
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? darkThemeValue
-      : lightThemeValue;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? darkThemeValue : lightThemeValue;
   };
   const isDark = getThemePreference() === darkThemeValue;
-  document.documentElement.classList[isDark ? "add" : "remove"](darkThemeClass);
+  document.documentElement.classList[isDark ? 'add' : 'remove'](darkThemeClass);
 
-  if (typeof localStorage !== "undefined") {
+  if (typeof localStorage !== 'undefined') {
     const observer = new MutationObserver(() => {
-      const isDark =
-        document.documentElement.classList.contains(darkThemeClass);
-      localStorage.setItem(
-        themeLocalStorage,
-        isDark ? darkThemeValue : lightThemeValue
-      );
+      const isDark = document.documentElement.classList.contains(darkThemeClass);
+      localStorage.setItem(themeLocalStorage, isDark ? darkThemeValue : lightThemeValue);
     });
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["class"],
+      attributeFilter: ['class'],
     });
   }
 </script>
