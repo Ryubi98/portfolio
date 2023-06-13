@@ -1,4 +1,4 @@
-# My personal portfolio
+# 🙋 My personal portfolio
 
 [![Last version](https://img.shields.io/github/v/release/ryubi98/portfolio?label=Version)](https://github.com/Ryubi98/portfolio/releases)
 [![Last release date](https://img.shields.io/github/release-date/ryubi98/portfolio?label=Last%20release%20date)](https://github.com/Ryubi98/portfolio/releases)
