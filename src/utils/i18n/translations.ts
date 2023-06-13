@@ -2,7 +2,7 @@ export const translations = {
   fr: {
     'nav.home': 'Accueil',
     'nav.about': 'À propos',
-    'nav.twitter': 'Twitter',
+    'nav.test': '{test}',
   },
   en: {
     'nav.home': 'Home',
