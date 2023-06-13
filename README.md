@@ -1,8 +1,8 @@
 # My personal portfolio
 
-[![Last version](https://img.shields.io/github/v/release/ryubi98/portfolio?label=Version)]
-[![Last release date](https://img.shields.io/github/release-date/ryubi98/portfolio?label=Last%20release%20date)]
-[![Last deploy pipiline status](https://img.shields.io/github/actions/workflow/status/ryubi98/portfolio/deploy-github-pages.yml?label=Pipeline)]
+[![Last version](https://img.shields.io/github/v/release/ryubi98/portfolio?label=Version)](https://github.com/Ryubi98/portfolio/releases)
+[![Last release date](https://img.shields.io/github/release-date/ryubi98/portfolio?label=Last%20release%20date)](https://github.com/Ryubi98/portfolio/releases)
+[![Last deploy pipiline status](https://img.shields.io/github/actions/workflow/status/ryubi98/portfolio/deploy-github-pages.yml?label=Pipeline)](https://github.com/Ryubi98/portfolio/actions/workflows/deploy-github-pages.yml)
 
 [![Github](https://img.shields.io/badge/Github----?style=social&logo=github)](https://github.com/Ryubi98)
 [![Gitlab](https://img.shields.io/badge/Gitlab----?style=social&logo=gitlab)](https://gitlab.com/Ryubi98)
