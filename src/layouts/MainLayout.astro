@@ -4,6 +4,8 @@ import { prefixBase } from '@utils/global';
 import { defaultLang, getLangFromUrl } from '@utils/i18n/utils';
 import AlternateLang from '@components/head/AlternateLang.astro';
 import ThemeScript from '@components/head/ThemeScript.astro';
+import Header from '@components/header/Header.astro';
+import Footer from '@components/footer/Footer.astro';
 
 interface Props {
   title: string;
@@ -28,6 +30,12 @@ const currentLang = getLangFromUrl(Astro.url);
     <ThemeScript />
   </head>
   <body>
+    <slot name="header">
+      <Header />
+    </slot>
     <slot />
+    <slot name="footer">
+      <Footer />
+    </slot>
   </body>
 </html>

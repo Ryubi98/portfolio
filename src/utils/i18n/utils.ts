@@ -27,6 +27,11 @@ export function useTranslations(lang: Lang) {
       ? [translations[lang][key]]
       : [translations[defaultLang][key]];
 
+    if (!result[0]) {
+      // force error at build time
+      throw Error(`Missing translation key ${key}`);
+    }
+
     Object.entries(replace).forEach(([replaceKey, replaceValue]: [string, Object]) => {
       result.forEach((value: Object, index: number) => {
         // even values in result are string litterals

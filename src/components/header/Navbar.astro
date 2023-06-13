@@ -1,0 +1,14 @@
+---
+import { getLangFromUrl, getUrlFromDestinationAndLang, useTranslations } from '@utils/i18n/utils';
+import Link from './Link.astro';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<nav>
+  <Link href={getUrlFromDestinationAndLang('', currentLang)}>{t('navbar.home')}</Link>
+  <Link href={getUrlFromDestinationAndLang('experiences', currentLang)}>{t('navbar.experiences')}</Link>
+  <Link href={getUrlFromDestinationAndLang('formation', currentLang)}>{t('navbar.formation')}</Link>
+  <Link href={getUrlFromDestinationAndLang('contact', currentLang)}>{t('navbar.contact')}</Link>
+</nav>

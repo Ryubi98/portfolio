@@ -1,11 +1,12 @@
 export const translations = {
   fr: {
-    'nav.home': 'Accueil',
-    'nav.about': 'À propos',
-    'nav.test': '{test}',
+    'navbar.experiences': 'Expériences',
+    'navbar.contact': 'Contact',
+    'navbar.formation': 'Formation',
+    'navbar.home': 'Accueil',
   },
   en: {
-    'nav.home': 'Home',
-    'nav.about': 'About',
+    'navbar.experiences': 'Experiences',
+    'navbar.home': 'Home',
   },
-} as const;
+};
