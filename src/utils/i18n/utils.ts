@@ -2,7 +2,7 @@ import { translations } from '@utils/i18n/translations';
 import { isObjKey, prefixBase } from '@utils/global';
 
 export const defaultLang = 'fr';
-export const slugLang = ['fr', 'en'];
+export const slugLang: Lang[] = ['fr', 'en'];
 
 export type Lang = keyof typeof translations;
 export type LangKey = keyof (typeof translations)[typeof defaultLang];
@@ -18,7 +18,6 @@ export function getLangFromUrl(url: URL) {
 
 export function getUrlFromDestinationAndLang(destination: string, lang: Lang = defaultLang) {
   const paths = [prefixBase, lang, ...(destination ? [destination] : [])];
-  console.log(paths.join('/'));
   return paths.join('/');
 }
 
