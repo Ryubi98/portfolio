@@ -1,18 +1,6 @@
----
-export const themeLocalStorage = 'theme';
-export const lightThemeValue = 'light';
-export const darkThemeValue = 'dark';
-export const darkThemeClass = 'dark-theme';
----
+<script>
+  import { themeLocalStorage, lightThemeValue, darkThemeValue, darkThemeClass } from '@utils/theme';
 
-<script
-  define:vars={{
-    themeLocalStorage,
-    lightThemeValue,
-    darkThemeValue,
-    darkThemeClass,
-  }}
->
   const getThemePreference = () => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem(themeLocalStorage)) {
       return localStorage.getItem(themeLocalStorage);
