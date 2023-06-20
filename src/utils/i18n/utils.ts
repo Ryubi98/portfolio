@@ -17,7 +17,8 @@ export function getLangFromUrl(url: URL) {
 }
 
 export function getUrlFromDestinationAndLang(destination: string, lang: Lang = defaultLang) {
-  const paths = [prefixBase, lang, ...(destination ? [destination] : [])];
+  const destinationWithNoStartingSlash = destination.charAt(0) === '/' ? destination.substring(1) : destination;
+  const paths = [prefixBase, lang, ...(destinationWithNoStartingSlash ? [destinationWithNoStartingSlash] : [])];
   return paths.join('/');
 }
 
