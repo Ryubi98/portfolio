@@ -7,8 +7,8 @@ const t = useTranslations(currentLang);
 
 const links = [
   { href: '/', value: t('navbar.home') },
+  { href: '/about', value: t('navbar.about') },
   { href: '/experiences', value: t('navbar.experiences') },
-  { href: '/formation', value: t('navbar.formation') },
   { href: '/contact', value: t('navbar.contact') },
 ];
 ---
@@ -24,3 +24,13 @@ const links = [
     }
   </ul>
 </nav>
+
+<style>
+  ul {
+    display: flex;
+  }
+
+  li:not(:first-child) {
+    margin-left: calc(0.5rem + 1.5625vw);
+  }
+</style>

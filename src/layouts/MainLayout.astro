@@ -33,7 +33,9 @@ const currentLang = getLangFromUrl(Astro.url);
     <slot name="header">
       <Header />
     </slot>
-    <slot />
+    <main>
+      <slot />
+    </main>
     <slot name="footer">
       <Footer />
     </slot>

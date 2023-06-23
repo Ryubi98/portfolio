@@ -10,6 +10,8 @@ const { lang } = Astro.params as LangParams;
 
 <MainLayout title="title" description="description">
   <h1>Home {lang}</h1>
+  <h2>Test</h2>
+  <h3>Antonin Ginet</h3>
   <nav>
     <a href={getUrlFromDestinationAndLang('')}>Default</a>
     <a href={getUrlFromDestinationAndLang('', 'fr')}>Français</a>

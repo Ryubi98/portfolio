@@ -1,11 +1,12 @@
 {
   "fr": {
-    "navbar.experiences": "Expériences",
+    "navbar.about": "À propos",
     "navbar.contact": "Contact",
-    "navbar.formation": "Formation",
+    "navbar.experiences": "Expériences",
     "navbar.home": "Accueil"
   },
   "en": {
+    "navbar.about": "About",
     "navbar.experiences": "Experiences",
     "navbar.home": "Home"
   }
