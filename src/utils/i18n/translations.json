@@ -3,11 +3,16 @@
     "navbar.about": "À propos",
     "navbar.contact": "Contact",
     "navbar.experiences": "Expériences",
-    "navbar.home": "Accueil"
+    "navbar.home": "Accueil",
+    "footer.copyright": "Copyright © 2023 Antonin Ginet. Code source du site disponible sur {github}.",
+    "footer.github": "Github",
+    "footer.gitlab": "Gitlab",
+    "footer.linkedin": "LinkedIn"
   },
   "en": {
     "navbar.about": "About",
     "navbar.experiences": "Experiences",
-    "navbar.home": "Home"
+    "navbar.home": "Home",
+    "footer.copyright": "Copyright © 2023 Antonin Ginet. Website source code on {github}."
   }
 }

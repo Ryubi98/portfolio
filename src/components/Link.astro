@@ -1,19 +1,21 @@
 ---
 interface Props {
   href: string;
+  isExternal?: boolean;
 }
 
-const { href } = Astro.props;
+const { href, isExternal = false } = Astro.props;
 ---
 
-<a href={href}><slot /></a>
+<a href={href} target={isExternal ? '_blank' : '_self'}><slot /></a>
 
 <style>
   a {
+    color: var(--c-primary);
     transition: color 0.3s ease-in-out;
   }
 
   a:hover {
-    color: var(--c-primary);
+    color: var(--c-accent);
   }
 </style>
