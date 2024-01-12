@@ -8,6 +8,7 @@
     "section.lab.title": "Lab",
     "section.projects.title": "Projets",
     "section.skills.title": "Compétences",
+    "social.cv": "Télécharger CV",
     "social.email": "antonin.ginet98@gmail.com",
     "social.github": "GitHub",
     "social.gitlab": "GitLab",
@@ -19,6 +20,7 @@
     "section.experiences.title": "Experiences",
     "section.home.title": "Home",
     "section.projects.title": "Projects",
-    "section.skills.title": "Skills"
+    "section.skills.title": "Skills",
+    "social.cv": "Download Resume"
   }
 }
