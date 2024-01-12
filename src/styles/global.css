@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 :root {
-  --c-text: #090a05;
-  --c-background: #e0edd8;
-  --c-primary: #65d631;
-  --c-secondary: #e6ebe7;
-  --c-accent: #155622;
+  --c-text: #0b111d;
+  --c-background: #f3f6fc;
+  --c-primary: #323b4d;
+  --c-secondary: #769eef;
+  --c-accent: #0b53e5;
 
   /* Step -2: 12.50px → 8.89px */
   --fs--2: clamp(0.56rem, calc(0.82rem + -0.2vw), 0.78rem);
@@ -22,9 +24,11 @@
 }
 
 :root.dark-theme {
-  --c-text: #ecfdee;
-  --c-background: #021903;
-  --c-secondary: #000000;
+  --c-text: #e1e8f4;
+  --c-background: #03060c;
+  --c-primary: #b2bbcd;
+  --c-secondary: #103889;
+  --c-accent: #1a63f4;
 }
 
 *,
@@ -36,7 +40,7 @@
 }
 
 body {
-  /* font family here */
+  font-family: 'Lato', 'sans-serif';
   font-size: var(--fs-0);
   line-height: 1.6;
   color: var(--c-text);
