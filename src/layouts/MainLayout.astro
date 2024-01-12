@@ -4,8 +4,7 @@ import { prefixBase } from '@utils/global';
 import { getLangFromUrl } from '@utils/i18n/utils';
 import AlternateLang from '@components/head/AlternateLang.astro';
 import ThemeScript from '@components/head/ThemeScript.astro';
-import Header from '@components/header/Header.astro';
-import Footer from '@components/footer/Footer.astro';
+import Footer from '@components/Footer.astro';
 
 interface Props {
   title: string;
@@ -16,7 +15,7 @@ const { title, description } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
@@ -26,18 +25,21 @@ const currentLang = getLangFromUrl(Astro.url);
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href=`${prefixBase}/favicon.svg` />
+    <script src="https://kit.fontawesome.com/bc9b2458c3.js" crossorigin="anonymous"></script>
     <AlternateLang />
     <ThemeScript />
   </head>
   <body>
-    <slot name="header">
-      <Header />
-    </slot>
+    <header>
+      <slot name="header" />
+    </header>
     <main>
       <slot />
     </main>
-    <slot name="footer">
-      <Footer />
-    </slot>
+    <footer>
+      <slot name="footer">
+        <Footer />
+      </slot>
+    </footer>
   </body>
 </html>
