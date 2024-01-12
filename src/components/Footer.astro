@@ -1,0 +1,27 @@
+---
+import Link from '@components/Link.astro';
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
+
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
+---
+
+<footer>
+  <p>
+    {
+      t('footer.copyright', {
+        github: <Link href="https://github.com/ryubi98/portfolio" value={t('footer.github')} isExternal />,
+      })
+    }
+  </p>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10vw;
+    min-height: 5rem;
+  }
+</style>

@@ -1,13 +1,22 @@
 ---
+import type { TranslatedMessage } from '@utils/i18n/utils';
+import Icon from './Icon.astro';
+
 interface Props {
   href: string;
+  value: string | TranslatedMessage;
+  icon?: string;
   isExternal?: boolean;
 }
+export type { Props as LinkProps };
 
-const { href, isExternal = false } = Astro.props;
+const { href, value, icon, isExternal = false } = Astro.props as Props;
 ---
 
-<a href={href} target={isExternal ? '_blank' : '_self'}><slot /></a>
+<a href={href} target={isExternal ? '_blank' : '_self'}>
+  {icon && <Icon icon={icon} />}
+  {value}
+</a>
 
 <style>
   a {

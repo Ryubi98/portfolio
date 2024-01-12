@@ -1,24 +1,22 @@
 ---
-import { getLangFromUrl, getUrlFromDestinationAndLang, useTranslations } from '@utils/i18n/utils';
-import Link from '@components/Link.astro';
+import Link, { type LinkProps } from '@components/Link.astro';
+import { getLangFromUrl, getUrlFromDestinationAndLang } from '@utils/i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
-const t = useTranslations(currentLang);
 
-const links = [
-  { href: '/', value: t('navbar.home') },
-  { href: '/about', value: t('navbar.about') },
-  { href: '/experiences', value: t('navbar.experiences') },
-  { href: '/contact', value: t('navbar.contact') },
-];
+interface Props {
+  links: LinkProps[];
+}
+
+const { links } = Astro.props as Props;
 ---
 
 <nav>
   <ul>
     {
-      links.map((link) => (
+      links.map(({ href, ...props }) => (
         <li>
-          <Link href={getUrlFromDestinationAndLang(link.href, currentLang)}>{link.value}</Link>
+          <Link href={getUrlFromDestinationAndLang(href, currentLang)} {...props} />
         </li>
       ))
     }

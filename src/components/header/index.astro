@@ -1,0 +1,39 @@
+---
+import Logo from './Logo.astro';
+import Navbar from './Navbar.astro';
+import ToogleLang from './ToogleLang.astro';
+import ToogleTheme from './ToogleTheme.astro';
+import type { LinkProps } from '@components/Link.astro';
+
+interface Props {
+  links: LinkProps[];
+}
+
+const { links } = Astro.props as Props;
+---
+
+<header class="flex-container">
+  <Logo />
+  <div class="flex-container">
+    <Navbar links={links} />
+    <div class="flex-container">
+      <ToogleTheme />
+      <ToogleLang />
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    margin: 0 10vw;
+    min-height: 5rem;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
