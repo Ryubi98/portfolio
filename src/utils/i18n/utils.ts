@@ -22,8 +22,10 @@ export function getLangFromUrl(url: URL) {
 
 export function getUrlFromDestinationAndLang(destination: string, lang: Lang = defaultLang) {
   const destinationWithNoStartingSlash = destination.replace(/^\//, '');
-  const paths = [prefixBase, lang, ...(destination ? [destinationWithNoStartingSlash] : [])];
-  return paths.join('/');
+  if (destinationWithNoStartingSlash.length === 0 || destinationWithNoStartingSlash.startsWith('#')) {
+    return `${prefixBase}/${lang}${destinationWithNoStartingSlash}`;
+  }
+  return `${prefixBase}/${lang}/${destinationWithNoStartingSlash}`;
 }
 
 export async function getLangStaticPaths() {
