@@ -1,13 +1,22 @@
 ---
+import type { TranslatedMessage } from '@utils/i18n/utils';
+
 interface Props {
+  isMainSection: boolean;
   id: string;
-  title: string;
+  title: TranslatedMessage;
 }
 
-const { id, title } = Astro.props as Props;
+const { isMainSection, id, title } = Astro.props;
 ---
 
-<section id={id}>
-  <h2>{title}</h2>
+<section id={id} class={isMainSection ? 'main' : ''}>
+  {!isMainSection && <h2>{title}</h2>}
   <slot />
 </section>
+
+<style>
+  section.main {
+    min-height: 100vh;
+  }
+</style>

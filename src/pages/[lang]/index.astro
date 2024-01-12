@@ -1,5 +1,6 @@
 ---
 import Header from '@components/Header/index.astro';
+import Section from '@components/Section.astro';
 import MainLayout from '@layouts/MainLayout/index.astro';
 import Contact from '@sections/index/Contact.astro';
 import Experiences from '@sections/index/Experiences.astro';
@@ -7,8 +8,7 @@ import Home from '@sections/index/Home.astro';
 import Lab from '@sections/index/Lab.astro';
 import Projects from '@sections/index/Projects.astro';
 import Skills from '@sections/index/Skills.astro';
-
-import { getLangStaticPaths, type LangParams, useTranslations } from '@utils/i18n/utils';
+import { getLangStaticPaths, type LangParams, useTranslations, type TranslatedMessage } from '@utils/i18n/utils';
 
 export { getLangStaticPaths as getStaticPaths };
 
@@ -18,7 +18,7 @@ const t = useTranslations(lang);
 type Section = {
   id: string;
   icon: string;
-  value: Object[];
+  value: TranslatedMessage;
   Component: any;
 };
 
@@ -40,13 +40,16 @@ const sections: Section[] = [
 <MainLayout title="title" description="description">
   <Header
     slot="header"
-    links={sections.map((section) => ({ href: `#${section.id}`, icon: section.icon, value: section.value }))}
+    links={sections
+      .filter((_, index) => index !== 0)
+      .map((section) => ({ href: `#${section.id}`, icon: section.icon, value: section.value }))}
+    logoUrl={`#${sections[0].id}`}
   />
   {
-    sections.map((section) => (
-      <section id={section.id}>
+    sections.map((section, index) => (
+      <Section isMainSection={index === 0} id={section.id} title={section.value}>
         <section.Component />
-      </section>
+      </Section>
     ))
   }
 </MainLayout>
