@@ -6,21 +6,6 @@
   --c-primary: #323b4d;
   --c-secondary: #769eef;
   --c-accent: #0b53e5;
-
-  /* Step -2: 12.50px → 8.89px */
-  --fs--2: clamp(0.56rem, calc(0.82rem + -0.2vw), 0.78rem);
-  /* Step -1: 15.00px → 13.33px */
-  --fs--1: clamp(0.83rem, calc(0.96rem + -0.09vw), 0.94rem);
-  /* Step 0: 18.00px → 20.00px */
-  --fs-0: clamp(1.13rem, calc(1.1rem + 0.11vw), 1.25rem);
-  /* Step 1: 21.60px → 30.00px */
-  --fs-1: clamp(1.35rem, calc(1.26rem + 0.46vw), 1.88rem);
-  /* Step 2: 25.92px → 45.00px */
-  --fs-2: clamp(1.62rem, calc(1.41rem + 1.04vw), 2.81rem);
-  /* Step 3: 31.10px → 67.50px */
-  --fs-3: clamp(1.94rem, calc(1.55rem + 1.98vw), 4.22rem);
-  /* Step 4: 37.32px → 101.25px */
-  --fs-4: clamp(2.33rem, calc(1.64rem + 3.47vw), 6.33rem);
 }
 
 :root.dark-theme {
@@ -41,11 +26,9 @@
 
 body {
   font-family: 'Lato', 'sans-serif';
-  font-size: var(--fs-0);
   line-height: 1.6;
   color: var(--c-text);
   background: var(--c-background);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -57,20 +40,7 @@ main {
 h1,
 h2,
 h3 {
-  /* font family here */
   line-height: 1.1;
-}
-
-h1 {
-  font-size: var(--fs-4);
-}
-
-h2 {
-  font-size: var(--fs-3);
-}
-
-h3 {
-  font-size: var(--fs-2);
 }
 
 a {

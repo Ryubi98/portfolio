@@ -10,21 +10,10 @@ interface Props {
 }
 export type { Props as LinkProps };
 
-const { href, value, icon, isExternal = false } = Astro.props as Props;
+const { href, value, icon, isExternal = false } = Astro.props;
 ---
 
 <a href={href} target={isExternal ? '_blank' : '_self'}>
   {icon && <Icon icon={icon} />}
   {value}
 </a>
-
-<style>
-  a {
-    color: var(--c-primary);
-    transition: color 0.3s ease-in-out;
-  }
-
-  a:hover {
-    color: var(--c-accent);
-  }
-</style>

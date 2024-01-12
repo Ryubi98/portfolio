@@ -7,13 +7,14 @@ import type { LinkProps } from '@components/Link.astro';
 
 interface Props {
   links: LinkProps[];
+  logoUrl?: string;
 }
 
-const { links } = Astro.props as Props;
+const { links, logoUrl = '' } = Astro.props;
 ---
 
 <header class="flex-container">
-  <Logo />
+  <Logo url={logoUrl} />
   <div class="flex-container">
     <Navbar links={links} />
     <div class="flex-container">
@@ -22,18 +23,3 @@ const { links } = Astro.props as Props;
     </div>
   </div>
 </header>
-
-<style>
-  header {
-    position: sticky;
-    top: 0;
-    margin: 0 10vw;
-    min-height: 5rem;
-  }
-
-  .flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-</style>

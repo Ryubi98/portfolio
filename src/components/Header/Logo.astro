@@ -1,17 +1,12 @@
 ---
 import { getUrlFromDestinationAndLang, type LangParams } from '@utils/i18n/utils';
 
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
 const { lang } = Astro.params as LangParams;
 ---
 
-<div><a href={getUrlFromDestinationAndLang('', lang)}>Portfolio.</a></div>
-
-<style>
-  div {
-    font-weight: 700;
-    background: linear-gradient(150deg, var(--c-primary) 40%, var(--c-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: var(--fs-2);
-  }
-</style>
+<div><a href={getUrlFromDestinationAndLang(url, lang)}>Portfolio.</a></div>

@@ -1,9 +1,7 @@
 ---
 import Icon from '@components/Icon.astro';
 import Link from '@components/Link.astro';
-import { getLangStaticPaths, type LangParams, useTranslations, type TranslatedMessage } from '@utils/i18n/utils';
-
-export { getLangStaticPaths as getStaticPaths };
+import { type LangParams, type TranslatedMessage, useTranslations } from '@utils/i18n/utils';
 
 const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
@@ -37,14 +35,3 @@ const socials: Social[] = [
     ))
   }
 </ul>
-
-<style>
-  ul {
-    display: flex;
-    gap: 1rem;
-  }
-
-  li {
-    font-size: var(--fs-2);
-  }
-</style>
