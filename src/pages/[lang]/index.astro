@@ -1,46 +1,52 @@
 ---
+import Header from '@components/Header/index.astro';
 import MainLayout from '@layouts/MainLayout.astro';
-import { getLangStaticPaths, getUrlFromDestinationAndLang, type LangParams } from '@utils/i18n/utils';
-import { darkThemeClass } from '@utils/theme';
+import Contact from '@sections/index/Contact.astro';
+import Experiences from '@sections/index/Experiences.astro';
+import Home from '@sections/index/Home.astro';
+import Lab from '@sections/index/Lab.astro';
+import Projects from '@sections/index/Projects.astro';
+import Skills from '@sections/index/Skills.astro';
+
+import { getLangStaticPaths, type LangParams, useTranslations } from '@utils/i18n/utils';
 
 export { getLangStaticPaths as getStaticPaths };
 
 const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
+
+type Section = {
+  id: string;
+  icon: string;
+  value: Object[];
+  Component: any;
+};
+
+const sections: Section[] = [
+  { id: 'home', icon: 'fa-solid fa-house', value: t('section.home.title'), Component: Home },
+  { id: 'skills', icon: 'fa-solid fa-screwdriver-wrench', value: t('section.skills.title'), Component: Skills },
+  {
+    id: 'experiences',
+    icon: 'fa-solid fa-ranking-star',
+    value: t('section.experiences.title'),
+    Component: Experiences,
+  },
+  { id: 'projects', icon: 'fa-solid fa-code', value: t('section.projects.title'), Component: Projects },
+  { id: 'lab', icon: 'fa-solid fa-flask-vial', value: t('section.lab.title'), Component: Lab },
+  { id: 'contact', icon: 'fa-solid fa-address-book', value: t('section.contact.title'), Component: Contact },
+];
 ---
 
 <MainLayout title="title" description="description">
-  <h1>Home {lang}</h1>
-  <h2>Test</h2>
-  <h3>Antonin Ginet</h3>
-  <nav>
-    <a href={getUrlFromDestinationAndLang('')}>Default</a>
-    <a href={getUrlFromDestinationAndLang('', 'fr')}>Français</a>
-    <a href={getUrlFromDestinationAndLang('', 'en')}>English</a>
-  </nav>
-  <a href={getUrlFromDestinationAndLang('about', lang)}>Go to about</a>
-  <toggle-theme data-dark-theme-class={darkThemeClass}>
-    <button class="button">Theme</button>
-  </toggle-theme>
+  <Header
+    slot="header"
+    links={sections.map((section) => ({ href: `#${section.id}`, icon: section.icon, value: section.value }))}
+  />
+  {
+    sections.map((section) => (
+      <section id={section.id}>
+        <section.Component />
+      </section>
+    ))
+  }
 </MainLayout>
-
-<style>
-  .button {
-    color: var(--color);
-    background-color: var(--bg-color);
-  }
-</style>
-
-<script>
-  class ToogleTheme extends HTMLElement {
-    constructor() {
-      super();
-      const darkThemeClass = this.dataset.darkThemeClass as string;
-      const button = this.querySelector('button');
-      button?.addEventListener('click', () => {
-        document.documentElement.classList.toggle(darkThemeClass);
-      });
-    }
-  }
-
-  customElements.define('toggle-theme', ToogleTheme);
-</script>
