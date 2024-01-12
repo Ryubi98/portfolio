@@ -1,4 +1,5 @@
 import { isObjKey } from '@utils/global';
+import type { TranslatedMessage } from './utils';
 
 type Translations = { [lang: string]: { [langKey: string]: string } };
 type Lang<Translations> = keyof Translations;
@@ -17,11 +18,11 @@ export default class TranslationsHandler<T extends Translations> {
     const defaultLang = this.defaultLang;
 
     return function t(key: string, replace: { [key: string]: Object } = {}) {
-      const result: Object[] | null = isObjKey(key, translations[lang])
+      const result: TranslatedMessage | null = isObjKey(key, translations[lang])
         ? [translations[lang][key]]
         : isObjKey(key, translations[defaultLang])
-        ? [translations[defaultLang][key]]
-        : null;
+          ? [translations[defaultLang][key]]
+          : null;
 
       if (!result) {
         throw new Error(`${key} is not a valid key.`);
@@ -36,7 +37,7 @@ export default class TranslationsHandler<T extends Translations> {
 
           const arrayWithoutReplaceKey = value.toString().split(`{${replaceKey}}`);
           const arrayWithReplaceValue = arrayWithoutReplaceKey.reduce(
-            (accumulator: Object[], value: string, index: number) => [
+            (accumulator: TranslatedMessage, value: string, index: number) => [
               ...accumulator,
               value,
               ...(arrayWithoutReplaceKey.length - 1 === index ? [] : [replaceValue]),

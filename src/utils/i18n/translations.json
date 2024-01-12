@@ -1,18 +1,24 @@
 {
   "fr": {
-    "navbar.about": "À propos",
-    "navbar.contact": "Contact",
-    "navbar.experiences": "Expériences",
-    "navbar.home": "Accueil",
-    "footer.copyright": "Copyright © 2023 Antonin Ginet. Code source du site disponible sur {github}.",
+    "footer.copyright": "Copyright © 2023 Antonin Ginet - Code source du site disponible sur {github}",
     "footer.github": "Github",
-    "footer.gitlab": "Gitlab",
-    "footer.linkedin": "LinkedIn"
+    "section.contact.title": "Contact",
+    "section.experiences.title": "Expériences",
+    "section.home.title": "Accueil",
+    "section.lab.title": "Lab",
+    "section.projects.title": "Projets",
+    "section.skills.title": "Compétences",
+    "social.email": "antonin.ginet98@gmail.com",
+    "social.github": "GitHub",
+    "social.gitlab": "GitLab",
+    "social.leetcode": "LeetCode",
+    "social.linkedin": "LinkedIn"
   },
   "en": {
-    "navbar.about": "About",
-    "navbar.experiences": "Experiences",
-    "navbar.home": "Home",
-    "footer.copyright": "Copyright © 2023 Antonin Ginet. Website source code on {github}."
+    "footer.copyright": "Copyright © 2023 Antonin Ginet - Website source code on {github}",
+    "section.experiences.title": "Experiences",
+    "section.home.title": "Home",
+    "section.projects.title": "Projects",
+    "section.skills.title": "Skills"
   }
 }

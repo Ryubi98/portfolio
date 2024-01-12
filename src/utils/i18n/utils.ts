@@ -6,6 +6,7 @@ export type Lang = keyof typeof translations;
 export type LangParams = {
   lang: Lang;
 };
+export type TranslatedMessage = Object[];
 
 export const defaultLang: Lang = 'fr';
 export const slugLang: Lang[] = ['fr', 'en'];
