@@ -7,16 +7,16 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@astrojs/check": "0.4.1",
-    "@vitejs/plugin-basic-ssl": "1.0.2",
-    "astro": "4.1.2",
-    "astro-compress": "2.2.7",
-    "husky": "8.0.3",
-    "lint-staged": "15.2.0",
-    "prettier": "3.1.1",
+    "@vitejs/plugin-basic-ssl": "1.1.0",
+    "astro": "4.2.8",
+    "astro-compress": "2.2.8",
+    "husky": "9.0.7",
+    "lint-staged": "15.2.1",
+    "prettier": "3.2.4",
     "typescript": "5.3.3"
   },
   "lint-staged": {
