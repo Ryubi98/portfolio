@@ -9,9 +9,12 @@ const t = useTranslations(lang);
 <footer>
   <p>
     {
-      t('footer.copyright', {
+      t('footer.source-code', {
         github: <Link href="https://github.com/ryubi98/portfolio" value={t('footer.github')} isExternal />,
       })
     }
+  </p>
+  <p>
+    {t('footer.copyright')}
   </p>
 </footer>
