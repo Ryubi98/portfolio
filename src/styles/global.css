@@ -24,8 +24,16 @@
   box-sizing: border-box;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
 body {
-  font-family: 'Lato', 'sans-serif';
+  min-height: 100svh;
+  font-family: 'Lato', sans-serif;
   line-height: 1.6;
   color: var(--c-text);
   background: var(--c-background);
@@ -51,4 +59,12 @@ a {
 ol,
 ul {
   list-style: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
 }
