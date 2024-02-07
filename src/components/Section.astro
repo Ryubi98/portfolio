@@ -14,9 +14,3 @@ const { isMainSection, id, title } = Astro.props;
   {!isMainSection && <h2>{title}</h2>}
   <slot />
 </section>
-
-<style>
-  section.main {
-    min-height: 100vh;
-  }
-</style>
