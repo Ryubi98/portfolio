@@ -1,5 +1,16 @@
 ---
+import Link from '@components/Link.astro';
+import { getDestinationFromUrl, getUrlFromDestinationAndLang, slugLangs, type LangParams } from '@utils/i18n/utils';
 
+const { lang: currentLang } = Astro.params as LangParams;
 ---
 
-<div>FR</div>
+<div>
+  {
+    slugLangs.map((lang) => (
+      <span class={lang === currentLang ? 'current' : ''}>
+        <Link href={getUrlFromDestinationAndLang(getDestinationFromUrl(Astro.url), lang)} value={lang.toUpperCase()} />
+      </span>
+    ))
+  }
+</div>
