@@ -1,7 +1,10 @@
 ---
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
 
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
 ---
 
-<div>Lab</div>
-
-<!-- Access to lab -->
+<p>{t('section.lab.text')}</p>
+<a>{t('section.lab.access-to')}<i class="fa-solid fa-flask-vial"></i></a>
+<p>{t('section.lab.constuction-in-progress')}<i class="fa-solid fa-person-digging"></i></p>

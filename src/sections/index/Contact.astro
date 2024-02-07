@@ -1,6 +1,10 @@
 ---
 import Socials from '@components/Socials.astro';
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
+
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
 ---
 
-<div>Contact</div>
-<div><Socials /></div>
+<p>{t('section.contact.text')}</p>
+<Socials />

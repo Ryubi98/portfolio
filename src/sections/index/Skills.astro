@@ -1,10 +1,25 @@
 ---
+import Icon from '@components/Icon.astro';
+import { getCollection } from 'astro:content';
 
+const skills = (await getCollection('skills')).map((item) => item.data).toSorted((a, b) => a.order - b.order);
 ---
 
-<div>Skills</div>
-
-<!-- Front end -->
-<!-- Back end -->
-<!-- Devops -->
-<!-- Design -->
+<p>Je m'adapte rapidemment à toutes les technos blablabla</p>
+<div class="skills">
+  {
+    skills.map((skill) => (
+      <div class="skill">
+        <h3>{skill.title}</h3>
+        <ul>
+          {skill.list.map((item) => (
+            <li>
+              <Icon icon={item.icon} />
+              {item.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
