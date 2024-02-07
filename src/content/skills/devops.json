@@ -1,0 +1,18 @@
+{
+  "order": 3,
+  "title": "Devops",
+  "list": [
+    {
+      "icon": "fa-brands fa-docker",
+      "name": "Docker"
+    },
+    {
+      "icon": "fa-brands fa-github",
+      "name": "GitHub Actions"
+    },
+    {
+      "icon": "fa-solid fa-n",
+      "name": "Nginx"
+    }
+  ]
+}

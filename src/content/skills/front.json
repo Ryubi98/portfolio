@@ -1,0 +1,18 @@
+{
+  "order": 1,
+  "title": "Front",
+  "list": [
+    {
+      "icon": "fa-brands fa-react",
+      "name": "React"
+    },
+    {
+      "icon": "fa-solid fa-atom",
+      "name": "Redux"
+    },
+    {
+      "icon": "fa-brands fa-js",
+      "name": "JS/TS"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "order": 2,
+  "title": "Back",
+  "list": [
+    {
+      "icon": "fa-solid fa-leaf",
+      "name": "Spring Boot"
+    },
+    {
+      "icon": "fa-brands fa-java",
+      "name": "Java"
+    },
+    {
+      "icon": "fa-solid fa-database",
+      "name": "PostgreSQL"
+    }
+  ]
+}
