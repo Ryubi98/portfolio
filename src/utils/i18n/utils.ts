@@ -9,7 +9,7 @@ export type LangParams = {
 export type TranslatedMessage = Object[];
 
 export const defaultLang: Lang = 'fr';
-export const slugLang: Lang[] = ['fr', 'en'];
+export const slugLangs: Lang[] = ['fr', 'en'];
 
 const translationsHandler = new TranslationsHandler(translations, defaultLang);
 export const useTranslations = translationsHandler.useTranslations;
@@ -18,6 +18,11 @@ export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.replace(prefixBase, '').split('/');
   if (lang in translations) return lang as Lang;
   return defaultLang;
+}
+
+export function getDestinationFromUrl(url: URL) {
+  const [, , ...destination] = url.pathname.replace(prefixBase, '').split('/');
+  return `/${destination.join('/')}`;
 }
 
 export function getUrlFromDestinationAndLang(destination: string, lang: Lang = defaultLang) {
@@ -29,7 +34,7 @@ export function getUrlFromDestinationAndLang(destination: string, lang: Lang = d
 }
 
 export async function getLangStaticPaths() {
-  return slugLang.map((lang) => ({
+  return slugLangs.map((lang) => ({
     params: { lang },
   }));
 }

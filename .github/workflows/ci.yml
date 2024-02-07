@@ -2,7 +2,7 @@ name: Continuous integration
 
 on:
   push:
-    branches: ["**"]
+    branches: ['**']
 
   workflow_dispatch:
 
@@ -15,4 +15,4 @@ jobs:
       - name: Install, build site
         uses: withastro/action@v0
         with:
-          node-version: 18
+          node-version: 20

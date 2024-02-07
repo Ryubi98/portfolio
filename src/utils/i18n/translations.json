@@ -1,10 +1,17 @@
 {
   "fr": {
-    "footer.copyright": "Copyright © 2023 Antonin Ginet - Code source du site disponible sur {github}",
+    "footer.copyright": "Copyright © 2023 - Antonin Ginet",
     "footer.github": "Github",
+    "footer.source-code": "Code source du site disponible sur {github}",
+    "section.contact.text": "N'hésitez pas à me contacter par email, via mes réseaux sociaux, ou tout simplement à télécharger mon CV.",
     "section.contact.title": "Contact",
     "section.experiences.title": "Expériences",
+    "section.home.introduction": "Et je suis un Ingénieur Full-Stack.",
     "section.home.title": "Accueil",
+    "section.home.welcome": "Salut ! Je m'appelle -",
+    "section.lab.access-to": "Accéder à",
+    "section.lab.constuction-in-progress": "En cours de construction",
+    "section.lab.text": "Venez visiter mon laboratoire secret, où j'entrepose mes différentes création web !",
     "section.lab.title": "Lab",
     "section.projects.title": "Projets",
     "section.skills.title": "Compétences",
@@ -16,11 +23,17 @@
     "social.linkedin": "LinkedIn"
   },
   "en": {
-    "footer.copyright": "Copyright © 2023 Antonin Ginet - Website source code on {github}",
+    "footer.source-code": "Website source code available on {github}",
+    "section.contact.text": "Feel free to contact me by email, through my social networks, or simply download my resume.",
     "section.experiences.title": "Experiences",
+    "section.home.introduction": "And I'm a Full-Stack Engineer",
     "section.home.title": "Home",
+    "section.home.welcome": "Hey there! My name is -",
+    "section.lab.access-to": "Access to",
+    "section.lab.constuction-in-progress": "Currently under construction",
+    "section.lab.text": "Come and visit my secret laboratory, where I store my various web creations!",
     "section.projects.title": "Projects",
     "section.skills.title": "Skills",
-    "social.cv": "Download Resume"
+    "social.cv": "Download resume"
   }
 }
