@@ -1,10 +1,10 @@
 ---
-import AlternateLang from './AlternateLang.astro';
-import ThemeScript from './ThemeScript.astro';
 import Footer from '@components/Footer.astro';
+import '@styles/global.css';
 import { prefixBase } from '@utils/global';
 import { getLangFromUrl } from '@utils/i18n/utils';
-import '@styles/global.css';
+import AlternateLang from './AlternateLang.astro';
+import ThemeScript from './ThemeScript.astro';
 
 interface Props {
   title: string;

@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
-import astroCompress from 'astro-compress';
 import pluginBasicSsl from '@vitejs/plugin-basic-ssl';
+import astroCompress from 'astro-compress';
+import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({

@@ -1,5 +1,5 @@
 import { isObjKey } from '@utils/global';
-import type { TranslatedMessage } from './utils';
+import { type TranslatedMessage } from './utils';
 
 type Translations = { [lang: string]: { [langKey: string]: string } };
 type Lang<Translations> = keyof Translations;

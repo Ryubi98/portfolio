@@ -1,6 +1,6 @@
-import translations from '@utils/i18n/translations.json';
-import TranslationsHandler from '@utils/i18n/TranslationsHandler';
 import { prefixBase } from '@utils/global';
+import TranslationsHandler from '@utils/i18n/TranslationsHandler';
+import translations from '@utils/i18n/translations.json';
 
 export type Lang = keyof typeof translations;
 export type LangParams = {
