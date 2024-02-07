@@ -30,16 +30,12 @@ const currentLang = getLangFromUrl(Astro.url);
     <ThemeScript />
   </head>
   <body>
-    <header>
-      <slot name="header" />
-    </header>
+    <slot name="header" />
     <main>
       <slot />
     </main>
-    <footer>
-      <slot name="footer">
-        <Footer />
-      </slot>
-    </footer>
+    <slot name="footer">
+      <Footer />
+    </slot>
   </body>
 </html>
