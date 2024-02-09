@@ -19,7 +19,7 @@ type Section = {
   id: string;
   icon: string;
   value: TranslatedMessage;
-  Component: any;
+  Component: (props: Record<string, any>) => any;
 };
 
 const sections: Section[] = [
