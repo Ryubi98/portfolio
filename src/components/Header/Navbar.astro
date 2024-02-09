@@ -1,14 +1,14 @@
 ---
 import Link, { type LinkProps } from '@components/Link.astro';
-import { getLangFromUrl, getUrlFromDestinationAndLang } from '@utils/i18n/utils';
-
-const currentLang = getLangFromUrl(Astro.url);
+import { type LangParams } from '@utils/i18n/utils';
+import { getUrlFromDestinationAndLang } from '@utils/routing';
 
 interface Props {
   links: LinkProps[];
 }
 
 const { links } = Astro.props;
+const { lang } = Astro.params as LangParams;
 ---
 
 <nav>
@@ -16,7 +16,7 @@ const { links } = Astro.props;
     {
       links.map(({ href, ...props }) => (
         <li>
-          <Link href={getUrlFromDestinationAndLang(href, currentLang)} {...props} />
+          <Link href={getUrlFromDestinationAndLang(href, lang)} {...props} />
         </li>
       ))
     }

@@ -1,6 +1,7 @@
 ---
 import Link from '@components/Link.astro';
-import { getDestinationFromUrl, getUrlFromDestinationAndLang, slugLangs, type LangParams } from '@utils/i18n/utils';
+import { slugLangs, type LangParams } from '@utils/i18n/utils';
+import { getDestinationFromUrl, getUrlFromDestinationAndLang } from '@utils/routing';
 
 const { lang: currentLang } = Astro.params as LangParams;
 ---
