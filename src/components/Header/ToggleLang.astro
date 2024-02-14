@@ -1,0 +1,47 @@
+---
+import { slugLangs, type LangParams } from '@utils/i18n/utils';
+import { getDestinationFromUrl, getUrlFromDestinationAndLang } from '@utils/routing';
+
+const { lang: currentLang } = Astro.params as LangParams;
+---
+
+<div>
+  {
+    slugLangs.map((lang) => (
+      <span>
+        <a
+          class={lang === currentLang ? 'current' : ''}
+          href={getUrlFromDestinationAndLang(getDestinationFromUrl(Astro.url), lang)}
+        >
+          {lang.toUpperCase()}
+        </a>
+      </span>
+    ))
+  }
+</div>
+
+<style>
+  a {
+    display: inline-block;
+    transition:
+      color 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  a.current {
+    font-weight: 900;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--c-accent-80);
+    transform: scale(1.1);
+  }
+
+  span + span {
+    --space: 0.625rem;
+    margin-left: var(--space);
+    padding-left: var(--space);
+    border-left: 1px solid var(--c-text-100);
+  }
+</style>

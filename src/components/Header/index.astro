@@ -2,7 +2,7 @@
 import { type LinkProps } from '@components/Link.astro';
 import Wrapper from '@components/Wrapper.astro';
 import Navbar from './Navbar/index.astro';
-import ToogleLang from './ToogleLang.astro';
+import ToggleLang from './ToggleLang.astro';
 import ToogleTheme from './ToogleTheme.astro';
 
 interface Props {
@@ -15,7 +15,7 @@ const { links } = Astro.props;
 <header>
   <Wrapper>
     <div class="row">
-      <ToogleLang />
+      <ToggleLang />
       <Navbar links={links} />
       <ToogleTheme />
     </div>
