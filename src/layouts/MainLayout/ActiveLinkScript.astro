@@ -1,0 +1,26 @@
+<script>
+  const sections = [...document.querySelectorAll('section')];
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('nav a');
+
+  window.addEventListener('scroll', () => {
+    const currentId = sections.reduce((prev, curr) => {
+      const visibleHeightPrev =
+        Math.min(prev.offsetTop + prev.offsetHeight, window.scrollY + window.innerHeight) -
+        Math.max(prev.offsetTop, window.scrollY);
+      const visibleHeightCurr =
+        Math.min(curr.offsetTop + curr.offsetHeight, window.scrollY + window.innerHeight) -
+        Math.max(curr.offsetTop, window.scrollY);
+      return visibleHeightPrev >= visibleHeightCurr ? prev : curr;
+    }).id;
+
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.href.includes(`#${currentId}`));
+    });
+
+    history.pushState({}, '', `#${currentId}`);
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.toggle('active', link.href.includes(window.location.hash));
+  });
+</script>
