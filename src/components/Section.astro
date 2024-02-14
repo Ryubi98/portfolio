@@ -25,8 +25,7 @@ const { isMainSection, id, title } = Astro.props;
 
   section.main {
     --header-padding-block: 1rem;
-    --header-text-size: 1rem;
-    --header-line-height: 1.6;
-    padding-top: calc(2 * var(--header-padding-block) + var(--header-text-size) * var(--header-line-height));
+    --header-max-content-height: 2.5rem;
+    padding-top: calc(2 * var(--header-padding-block) + var(--header-max-content-height));
   }
 </style>
