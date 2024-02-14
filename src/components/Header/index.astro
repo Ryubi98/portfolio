@@ -1,7 +1,7 @@
 ---
 import { type LinkProps } from '@components/Link.astro';
 import Wrapper from '@components/Wrapper.astro';
-import Navbar from './Navbar.astro';
+import Navbar from './Navbar/index.astro';
 import ToogleLang from './ToogleLang.astro';
 import ToogleTheme from './ToogleTheme.astro';
 
@@ -12,12 +12,29 @@ interface Props {
 const { links } = Astro.props;
 ---
 
-<header class="header">
+<header>
   <Wrapper>
     <div class="row">
       <ToogleLang />
-    <Navbar links={links} />
+      <Navbar links={links} />
       <ToogleTheme />
     </div>
   </Wrapper>
 </header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-block: 1rem;
+    background-color: var(--c-background-90);
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
