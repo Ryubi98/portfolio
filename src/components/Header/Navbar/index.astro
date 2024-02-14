@@ -1,10 +1,11 @@
 ---
 import { type LangParams } from '@utils/i18n/utils';
 import { getUrlFromDestinationAndLang } from '@utils/routing';
-import Link, { type LinkProps } from './Link.astro';
+import type { ComponentProps } from 'astro/types';
+import Link from './Link.astro';
 
 interface Props {
-  links: LinkProps[];
+  links: ComponentProps<typeof Link>[];
 }
 
 const { links } = Astro.props;

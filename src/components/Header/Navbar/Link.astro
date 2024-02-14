@@ -6,14 +6,12 @@ interface Props {
   href: string;
   value: string | TranslatedMessage;
   icon?: string;
-  isExternal?: boolean;
 }
-export type { Props as LinkProps };
 
-const { href, value, icon, isExternal = false } = Astro.props;
+const { href, value, icon } = Astro.props;
 ---
 
-<a href={href} target={isExternal ? '_blank' : '_self'}>
+<a href={href}>
   {icon && <Icon icon={icon} />}
   <span>{value}</span>
 </a>

@@ -1,12 +1,12 @@
 ---
-import { type LinkProps } from '@components/Link.astro';
 import Wrapper from '@components/Wrapper.astro';
+import type { ComponentProps } from 'astro/types';
 import Navbar from './Navbar/index.astro';
 import ToggleLang from './ToggleLang.astro';
 import ToggleTheme from './ToggleTheme.astro';
 
 interface Props {
-  links: LinkProps[];
+  links: ComponentProps<typeof Navbar>['links'];
 }
 
 const { links } = Astro.props;
