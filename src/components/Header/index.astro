@@ -3,7 +3,7 @@ import { type LinkProps } from '@components/Link.astro';
 import Wrapper from '@components/Wrapper.astro';
 import Navbar from './Navbar/index.astro';
 import ToggleLang from './ToggleLang.astro';
-import ToogleTheme from './ToogleTheme.astro';
+import ToggleTheme from './ToggleTheme.astro';
 
 interface Props {
   links: LinkProps[];
@@ -17,7 +17,7 @@ const { links } = Astro.props;
     <div class="row">
       <ToggleLang />
       <Navbar links={links} />
-      <ToogleTheme />
+      <ToggleTheme />
     </div>
   </Wrapper>
 </header>

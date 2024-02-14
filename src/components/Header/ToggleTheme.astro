@@ -1,0 +1,120 @@
+---
+import Icon from '@components/Icon.astro';
+---
+
+<toggle-theme>
+  <button>
+    <Icon icon=`fa-solid fa-sun` />
+    <Icon icon=`fa-solid fa-moon` />
+    <div class="circle" style="--order: 0"></div>
+    <div class="circle" style="--order: 1"></div>
+    <div class="circle" style="--order: 2"></div>
+    <div class="circle" style="--order: 3"></div>
+  </button>
+</toggle-theme>
+
+<style>
+  :global(toggle-theme .fa-moon) {
+    display: none;
+  }
+
+  :global(.dark-theme toggle-theme .fa-sun) {
+    display: none;
+  }
+
+  :global(.dark-theme toggle-theme .fa-moon) {
+    display: unset;
+  }
+
+  button {
+    --size: 2.5rem;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--c-text-100);
+    background-color: var(--c-secondary-40);
+    transition:
+      background-color 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  button:hover,
+  button:focus {
+    background-color: var(--c-accent-80);
+    transform: scale(1.1);
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) scale(0);
+    width: calc(1.42 * 200vmax);
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  .circle.light {
+    background-color: var(--light-background-100);
+  }
+
+  .circle.dark {
+    background-color: var(--dark-background-100);
+  }
+
+  .circle.animate {
+    animation: expansion 1.5s;
+    animation-delay: calc(var(--order) * 0.1s);
+  }
+
+  @keyframes expansion {
+    0%,
+    100% {
+      transform: translate(50%, -50%) scale(0);
+    }
+    70% {
+      transform: translate(50%, -50%) scale(1);
+    }
+  }
+</style>
+
+<script>
+  class ToogleTheme extends HTMLElement {
+    constructor() {
+      super();
+      const darkThemeClass = 'dark-theme';
+      const button = this.querySelector('button');
+
+      button?.addEventListener('click', () => {
+        button.disabled = true;
+        button.blur();
+
+        const isDarkMode = document.documentElement.classList.contains(darkThemeClass);
+
+        this.querySelectorAll('.circle').forEach((circle, index) => {
+          if (index % 2 === 0) {
+            circle.classList.add(isDarkMode ? 'light' : 'dark');
+          } else {
+            circle.classList.add(isDarkMode ? 'dark' : 'light');
+          }
+          circle.classList.add('animate');
+        });
+
+        setTimeout(() => {
+          document.documentElement.classList.toggle(darkThemeClass);
+        }, 500);
+
+        setTimeout(() => {
+          this.querySelectorAll('.circle').forEach((circle) => {
+            circle.classList.remove('light', 'dark', 'animate');
+          });
+          button.disabled = false;
+        }, 1900);
+      });
+    }
+  }
+
+  customElements.define('toggle-theme', ToogleTheme);
+</script>
