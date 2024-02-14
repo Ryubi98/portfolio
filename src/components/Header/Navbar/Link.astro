@@ -1,0 +1,50 @@
+---
+import Icon from '@components/Icon.astro';
+import { type TranslatedMessage } from '@utils/i18n/utils';
+
+interface Props {
+  href: string;
+  value: string | TranslatedMessage;
+  icon?: string;
+  isExternal?: boolean;
+}
+export type { Props as LinkProps };
+
+const { href, value, icon, isExternal = false } = Astro.props;
+---
+
+<a href={href} target={isExternal ? '_blank' : '_self'}>
+  {icon && <Icon icon={icon} />}
+  <span>{value}</span>
+</a>
+
+<style>
+  a {
+    --size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--size);
+    height: var(--size);
+    padding: 1rem 1rem;
+    background-color: var(--c-secondary-40);
+    border-radius: 0.3125rem;
+    transition:
+      background-color 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  a.active {
+    background-color: var(--c-accent-60);
+  }
+
+  a:hover,
+  a:focus {
+    background-color: var(--c-accent-80);
+    transform: scale(1.1);
+  }
+
+  span {
+    display: none;
+  }
+</style>
