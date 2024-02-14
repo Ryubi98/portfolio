@@ -40,10 +40,7 @@ const sections: Section[] = [
 <MainLayout title="title" description="description">
   <Header
     slot="header"
-    links={sections
-      .filter((_, index) => index !== 0)
-      .map((section) => ({ href: `#${section.id}`, icon: section.icon, value: section.value }))}
-    logoUrl={`#${sections[0].id}`}
+    links={sections.map((section) => ({ href: `#${section.id}`, icon: section.icon, value: section.value }))}
   />
   {
     sections.map((section, index) => (

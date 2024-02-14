@@ -1,25 +1,23 @@
 ---
 import { type LinkProps } from '@components/Link.astro';
-import Logo from './Logo.astro';
+import Wrapper from '@components/Wrapper.astro';
 import Navbar from './Navbar.astro';
 import ToogleLang from './ToogleLang.astro';
 import ToogleTheme from './ToogleTheme.astro';
 
 interface Props {
   links: LinkProps[];
-  logoUrl?: string;
 }
 
-const { links, logoUrl = '' } = Astro.props;
+const { links } = Astro.props;
 ---
 
-<header class="flex-container">
-  <Logo url={logoUrl} />
-  <div class="flex-container">
-    <Navbar links={links} />
-    <div class="flex-container">
-      <ToogleTheme />
+<header class="header">
+  <Wrapper>
+    <div class="row">
       <ToogleLang />
+    <Navbar links={links} />
+      <ToogleTheme />
     </div>
-  </div>
+  </Wrapper>
 </header>
