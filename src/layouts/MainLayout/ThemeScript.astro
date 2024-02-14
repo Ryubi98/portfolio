@@ -1,5 +1,8 @@
 <script>
-  import { themeLocalStorage, lightThemeValue, darkThemeValue, darkThemeClass } from '@utils/theme';
+  const themeLocalStorage = 'theme';
+  const lightThemeValue = 'light';
+  const darkThemeValue = 'dark';
+  const darkThemeClass = 'dark-theme';
 
   const getThemePreference = () => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem(themeLocalStorage)) {
