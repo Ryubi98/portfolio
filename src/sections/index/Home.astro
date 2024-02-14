@@ -1,8 +1,63 @@
 ---
 import Socials from '@components/Socials.astro';
+import { prefixBase } from '@utils/global';
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
+
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
 ---
 
-<p>Hey there! I'm -</p>
-<h1>Antonin Ginet</h1>
-<p><span>Full-Stack Engineer.</span></p>
-<Socials />
+<div class="flex-container">
+  <img src=`${prefixBase}/antonin-ginet.jpg` alt="Antonin Ginet" />
+  <div class="content">
+    <p class="greetings">{t('section.home.welcome')}</p>
+    <h1>{t('section.home.name')}</h1>
+    <p class="description">
+      {t('section.home.introduction', { job: <span class="job">{t('section.home.job')}</span> })}
+    </p>
+    <Socials />
+  </div>
+</div>
+
+<style>
+  .flex-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  img {
+    margin-inline: auto;
+    width: 70%;
+    border-radius: 50%;
+  }
+
+  .greetings {
+    z-index: -1;
+    position: relative;
+    right: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--c-primary-100);
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--c-primary-100);
+  }
+
+  .description {
+    font-size: 1.5rem;
+  }
+
+  .job {
+    font-weight: 700;
+  }
+</style>
