@@ -223,7 +223,10 @@
 }
 
 :has(:target) {
-  scroll-padding-top: 3rem;
+  --header-padding-block: 1rem;
+  --header-text-size: 1rem;
+  --header-line-height: 1.6;
+  scroll-padding-top: calc(2 * var(--header-padding-block) + var(--header-text-size) * var(--header-line-height));
 }
 
 @media (prefers-reduced-motion: no-preference) {
