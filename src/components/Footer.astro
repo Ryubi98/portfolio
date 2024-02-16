@@ -1,6 +1,7 @@
 ---
+import Column from '@components/Column.astro';
+import Wrapper from '@components/Wrapper.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
-import Wrapper from './Wrapper.astro';
 
 const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
@@ -8,7 +9,7 @@ const t = useTranslations(lang);
 
 <footer>
   <Wrapper>
-    <div class="flex-column">
+    <Column size="small">
       <p>
         {
           t('footer.source-code', {
@@ -23,7 +24,7 @@ const t = useTranslations(lang);
       <p>
         {t('footer.copyright')}
       </p>
-    </div>
+    </Column>
   </Wrapper>
 </footer>
 

@@ -1,4 +1,5 @@
 ---
+import Column from '@components/Column.astro';
 import Icon from '@components/Icon.astro';
 import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
@@ -7,22 +8,15 @@ const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
 ---
 
-<div class="flex-column">
+<Column>
   <p>{t('section.lab.text')}</p>
   <a href={`${prefixBase}/${lang}/lab`}>
     <span>{t('section.lab.access-to')}</span>
     <Icon icon="fa-solid fa-flask-vial" />
   </a>
-</div>
+</Column>
 
 <style>
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
   a {
     line-height: 1;
     padding: 0.625rem 1rem;
