@@ -1,5 +1,4 @@
 ---
-import Link from '@components/Link.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 
 const { lang } = Astro.params as LangParams;
@@ -10,7 +9,11 @@ const t = useTranslations(lang);
   <p>
     {
       t('footer.source-code', {
-        github: <Link href="https://github.com/ryubi98/portfolio" value={t('footer.github')} isExternal />,
+        github: (
+          <a href="https://github.com/ryubi98/portfolio" target="_blank">
+            {t('footer.github')}
+          </a>
+        ),
       })
     }
   </p>
