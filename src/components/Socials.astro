@@ -1,6 +1,5 @@
 ---
 import Icon from '@components/Icon.astro';
-import Link from '@components/Link.astro';
 import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams, type TranslatedMessage } from '@utils/i18n/utils';
 
@@ -35,9 +34,33 @@ const socials: Social[] = [
   {
     socials.map((social) => (
       <li>
-        <Icon icon={social.icon} />
-        <Link href={social.href} value={social.label} isExternal />
+        <a href={social.href} target={'_blank'}>
+          <Icon icon={social.icon} />
+          <span>{social.label}</span>
+        </a>
       </li>
     ))
   }
 </ul>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  a {
+    padding: 0.625rem 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--c-primary-100);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  a span {
+    line-height: 1;
+  }
+</style>
