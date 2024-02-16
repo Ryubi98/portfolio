@@ -222,6 +222,11 @@
   box-sizing: border-box;
 }
 
+:focus {
+  outline: 2px solid var(--c-primary-50);
+  outline-offset: 2px;
+}
+
 :has(:target) {
   --header-padding-block: 1rem;
   --header-text-size: 1rem;
