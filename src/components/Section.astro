@@ -20,12 +20,14 @@ const { isMainSection, id, title } = Astro.props;
 
 <style>
   section {
-    min-height: 100svh;
-  }
-
-  section.main {
     --header-padding-block: 1rem;
     --header-max-content-height: 2.5rem;
-    padding-top: calc(2 * var(--header-padding-block) + var(--header-max-content-height));
+    padding-block: calc(2 * var(--header-padding-block) + var(--header-max-content-height));
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 </style>
