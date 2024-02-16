@@ -9,19 +9,32 @@ const t = useTranslations(lang);
 
 <div class="flex-container">
   <img src=`${prefixBase}/antonin-ginet.jpg` alt="Antonin Ginet" />
-  <div class="content">
-    <p class="greetings">{t('section.home.welcome')}</p>
-    <h1>{t('section.home.name')}</h1>
-    <p class="description">
-      {t('section.home.introduction', { job: <span class="job">{t('section.home.job')}</span> })}
-    </p>
+  <div class="flex-column">
+    <div class="content">
+      <p class="greetings">{t('section.home.welcome')}</p>
+      <h1>{t('section.home.name')}</h1>
+      <p class="description">
+        {t('section.home.introduction', { job: <span class="job">{t('section.home.job')}</span> })}
+      </p>
+    </div>
     <Socials />
   </div>
 </div>
 
 <style>
   .flex-container {
-    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  img {
+    margin-inline: auto;
+    width: 60%;
+    border-radius: 50%;
+  }
+
+  .flex-column {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -31,12 +44,7 @@ const t = useTranslations(lang);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  img {
-    margin-inline: auto;
-    width: 70%;
-    border-radius: 50%;
+    line-height: 1.1;
   }
 
   .greetings {
