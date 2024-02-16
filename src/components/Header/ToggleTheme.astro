@@ -93,6 +93,7 @@ import Icon from '@components/Icon.astro';
       super();
       const darkThemeClass = 'dark-theme';
       const button = this.querySelector('button');
+      const circles = this.querySelectorAll('.circle');
       const toggleTheme = () => document.documentElement.classList.toggle(darkThemeClass);
 
       button?.addEventListener('click', () => {
@@ -107,7 +108,7 @@ import Icon from '@components/Icon.astro';
         button.disabled = true;
         const isDarkMode = document.documentElement.classList.contains(darkThemeClass);
 
-        this.querySelectorAll('.circle').forEach((circle, index) => {
+        circles.forEach((circle, index) => {
           if (index % 2 === 0) {
             circle.classList.add(isDarkMode ? 'light' : 'dark');
           } else {
@@ -121,7 +122,7 @@ import Icon from '@components/Icon.astro';
         }, 750);
 
         setTimeout(() => {
-          this.querySelectorAll('.circle').forEach((circle) => {
+          circles.forEach((circle) => {
             circle.classList.remove('light', 'dark', 'animate');
           });
           button.disabled = false;
