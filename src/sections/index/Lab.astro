@@ -25,11 +25,14 @@ const t = useTranslations(lang);
     align-items: center;
     gap: 0.5rem;
     background-color: var(--c-primary-100);
-    transition: background-color 0.3s ease-in-out;
+    transition:
+      background-color 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
   }
 
   a:hover,
   a:focus {
     background-color: var(--c-accent-100);
+    transform: scale(1.1);
   }
 </style>

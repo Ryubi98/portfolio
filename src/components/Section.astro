@@ -1,6 +1,6 @@
 ---
+import Wrapper from '@components/Wrapper.astro';
 import { type TranslatedMessage } from '@utils/i18n/utils';
-import Wrapper from './Wrapper.astro';
 
 interface Props {
   id: string;
@@ -20,18 +20,41 @@ const { isMainSection, id, title } = Astro.props;
 
 <style>
   section {
-    padding-bottom: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (width > 54em) {
+    section {
+      margin-bottom: 10rem;
+    }
   }
 
   section.main {
     --header-padding-block: 1rem;
     --header-max-content-height: 2.5rem;
-    padding-top: calc(2 * var(--header-padding-block) + var(--header-max-content-height));
+    margin-top: calc(2 * var(--header-padding-block) + var(--header-max-content-height));
+  }
+
+  @media (width > 54em) {
+    section.main {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
   }
 
   h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    color: var(--c-accent-100);
+  }
+
+  @media (width > 54em) {
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
   }
 </style>

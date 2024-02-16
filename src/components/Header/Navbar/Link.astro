@@ -32,13 +32,36 @@ const { href, value, icon } = Astro.props;
       transform 0.3s ease-in-out;
   }
 
+  @media (width > 64em) {
+    a {
+      --size: initial;
+      background-color: initial;
+      border-radius: initial;
+      padding: 0;
+    }
+  }
+
   a:hover,
   a:focus {
     background-color: var(--c-accent-80);
     transform: scale(1.1);
   }
+  @media (width > 64em) {
+    a:hover,
+    a:focus {
+      background-color: initial;
+      color: var(--c-accent-80);
+    }
+  }
 
   span {
     display: none;
+  }
+
+  @media (width > 64em) {
+    span {
+      display: initial;
+      margin-left: 0.625rem;
+    }
   }
 </style>
