@@ -34,7 +34,7 @@ const socials: Social[] = [
   {
     socials.map((social) => (
       <li>
-        <a href={social.href} target={'_blank'}>
+        <a href={social.href} target="_blank">
           <Icon icon={social.icon} />
           <span>{social.label}</span>
         </a>
@@ -51,6 +51,7 @@ const socials: Social[] = [
   }
 
   a {
+    line-height: 1;
     padding: 0.625rem 1rem;
     border-radius: 1rem;
     display: flex;
@@ -60,7 +61,8 @@ const socials: Social[] = [
     transition: background-color 0.3s ease-in-out;
   }
 
-  a span {
-    line-height: 1;
+  a:hover,
+  a:focus {
+    background-color: var(--c-accent-100);
   }
 </style>
