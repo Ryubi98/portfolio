@@ -1,10 +1,41 @@
 ---
+import Icon from '@components/Icon.astro';
+import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 
 const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
 ---
 
-<p>{t('section.lab.text')}</p>
-<a>{t('section.lab.access-to')}<i class="fa-solid fa-flask-vial"></i></a>
-<p>{t('section.lab.constuction-in-progress')}<i class="fa-solid fa-person-digging"></i></p>
+<div class="flex-column">
+  <p>{t('section.lab.text')}</p>
+  <a href={`${prefixBase}/${lang}/lab`}>
+    <span>{t('section.lab.access-to')}</span>
+    <Icon icon="fa-solid fa-flask-vial" />
+  </a>
+</div>
+
+<style>
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  a {
+    line-height: 1;
+    padding: 0.625rem 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--c-primary-100);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  a:hover,
+  a:focus {
+    background-color: var(--c-accent-100);
+  }
+</style>
