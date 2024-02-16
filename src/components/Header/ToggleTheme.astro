@@ -35,9 +35,14 @@ import Icon from '@components/Icon.astro';
     cursor: pointer;
     color: var(--c-text-100);
     background-color: var(--c-secondary-40);
-    transition:
-      background-color 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    button {
+      transition:
+        background-color 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+    }
   }
 
   button:hover,
@@ -64,18 +69,20 @@ import Icon from '@components/Icon.astro';
     background-color: var(--dark-background-100);
   }
 
-  .circle.animate {
-    animation: expansion 1.2s;
-    animation-delay: calc(var(--order) * 0.1s);
-  }
-
-  @keyframes expansion {
-    0%,
-    100% {
-      transform: translate(50%, -50%) scale(0);
+  @media (prefers-reduced-motion: no-preference) {
+    .circle.animate {
+      animation: expansion 1.2s;
+      animation-delay: calc(var(--order) * 0.1s);
     }
-    70% {
-      transform: translate(50%, -50%) scale(1);
+
+    @keyframes expansion {
+      0%,
+      100% {
+        transform: translate(50%, -50%) scale(0);
+      }
+      70% {
+        transform: translate(50%, -50%) scale(1);
+      }
     }
   }
 </style>
@@ -86,11 +93,18 @@ import Icon from '@components/Icon.astro';
       super();
       const darkThemeClass = 'dark-theme';
       const button = this.querySelector('button');
+      const toggleTheme = () => document.documentElement.classList.toggle(darkThemeClass);
 
       button?.addEventListener('click', () => {
-        button.disabled = true;
         button.blur();
 
+        const animationDisabled = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (animationDisabled) {
+          toggleTheme();
+          return;
+        }
+
+        button.disabled = true;
         const isDarkMode = document.documentElement.classList.contains(darkThemeClass);
 
         this.querySelectorAll('.circle').forEach((circle, index) => {
@@ -103,8 +117,8 @@ import Icon from '@components/Icon.astro';
         });
 
         setTimeout(() => {
-          document.documentElement.classList.toggle(darkThemeClass);
-        }, 500);
+          toggleTheme();
+        }, 750);
 
         setTimeout(() => {
           this.querySelectorAll('.circle').forEach((circle) => {

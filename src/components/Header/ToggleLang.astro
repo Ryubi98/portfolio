@@ -33,9 +33,14 @@ const { lang: currentLang } = Astro.params as LangParams;
 
   a {
     display: inline-block;
-    transition:
-      color 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a {
+      transition:
+        color 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+    }
   }
 
   a:hover,

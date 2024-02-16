@@ -27,9 +27,14 @@ const { href, value, icon } = Astro.props;
     padding: 1rem;
     background-color: var(--c-secondary-40);
     border-radius: 0.3125rem;
-    transition:
-      background-color 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a {
+      transition:
+        background-color 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+    }
   }
 
   @media (width > 64em) {
