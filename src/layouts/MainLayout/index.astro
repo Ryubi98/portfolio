@@ -3,8 +3,8 @@ import Footer from '@components/Footer.astro';
 import '@styles/global.css';
 import { prefixBase } from '@utils/global';
 import { type LangParams } from '@utils/i18n/utils';
-import ActiveLinkScript from './ActiveLinkScript.astro';
 import AlternateLang from './AlternateLang.astro';
+import CurrentLinkScript from './CurrentLinkScript.astro';
 import ThemeScript from './ThemeScript.astro';
 
 interface Props {
@@ -29,7 +29,7 @@ const { lang } = Astro.params as LangParams;
     <script src="https://kit.fontawesome.com/bc9b2458c3.js" crossorigin="anonymous"></script>
     <AlternateLang />
     <ThemeScript />
-    <ActiveLinkScript />
+    <CurrentLinkScript />
   </head>
   <body>
     <slot name="header" />
