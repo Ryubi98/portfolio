@@ -8,7 +8,7 @@ const { lang: currentLang } = Astro.params as LangParams;
 <div>
   {
     slugLangs.map((lang) => (
-      <span class={lang === currentLang ? 'current' : ''}>
+      <span class:list={[{ current: lang === currentLang }]}>
         {lang === currentLang ? (
           lang.toUpperCase()
         ) : (
