@@ -222,7 +222,7 @@
   box-sizing: border-box;
 }
 
-:focus {
+:focus-visible {
   outline: 2px solid var(--c-primary-50);
   outline-offset: 2px;
 }
