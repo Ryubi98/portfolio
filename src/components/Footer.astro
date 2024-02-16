@@ -1,32 +1,58 @@
 ---
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
+import Wrapper from './Wrapper.astro';
 
 const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
 ---
 
 <footer>
-  <p>
-    {
-      t('footer.source-code', {
-        github: (
-          <a href="https://github.com/ryubi98/portfolio" target="_blank">
-            {t('footer.github')}
-          </a>
-        ),
-      })
-    }
-  </p>
-  <p>
-    {t('footer.copyright')}
-  </p>
+  <Wrapper>
+    <div class="flex-column">
+      <p>
+        {
+          t('footer.source-code', {
+            github: (
+              <a href="https://github.com/ryubi98/portfolio" target="_blank">
+                {t('footer.github')}
+              </a>
+            ),
+          })
+        }
+      </p>
+      <p>
+        {t('footer.copyright')}
+      </p>
+    </div>
+  </Wrapper>
 </footer>
 
 <style>
   footer {
+    --margin: 2rem;
     --navbar-margin-bottom: 1rem;
     --navbar-padding: 0.625rem;
     --navbar-max-content-height: 2.5rem;
-    margin-bottom: calc(var(--navbar-margin-bottom) + 2 * var(--navbar-padding) + var(--navbar-max-content-height));
+    --extra-margin: calc(var(--navbar-margin-bottom) + 2 * var(--navbar-padding) + var(--navbar-max-content-height));
+    margin-bottom: calc(var(--margin) + var(--extra-margin));
+    margin-top: var(--margin);
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  a {
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--c-primary-100);
   }
 </style>
