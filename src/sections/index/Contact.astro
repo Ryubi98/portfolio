@@ -6,5 +6,16 @@ const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
 ---
 
-<p>{t('section.contact.text')}</p>
-<Socials />
+<div class="flex-column">
+  <p>{t('section.contact.text')}</p>
+  <Socials />
+</div>
+
+<style>
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+</style>
