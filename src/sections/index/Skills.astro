@@ -1,25 +1,69 @@
 ---
+import Column from '@components/Column.astro';
 import Icon from '@components/Icon.astro';
+import Paragraph from '@components/Paragraph.astro';
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
 import { getCollection } from 'astro:content';
 
-const skills = (await getCollection('skills')).map((item) => item.data).toSorted((a, b) => a.order - b.order);
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
+
+const skills = (await getCollection('skills'))
+  .map((skill) => skill.data)
+  .toSorted((prev, next) => prev.order - next.order);
 ---
 
-<p>Je m'adapte rapidemment à toutes les technos blablabla</p>
-<div class="skills">
-  {
-    skills.map((skill) => (
-      <div class="skill">
-        <h3>{skill.title}</h3>
-        <ul>
-          {skill.list.map((item) => (
-            <li>
-              <Icon icon={item.icon} />
-              {item.name}
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))
+<Column>
+  <Paragraph>{t('section.skills.text')}</Paragraph>
+  <ul class="skills">
+    {
+      skills.map((skill) => (
+        <li class="skill">
+          <h3>{skill.title}</h3>
+          <ul>
+            {skill.list.map((item) => (
+              <li>
+                <Icon icon={item.icon} />
+                {item.name}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</Column>
+
+<style>
+  .skills {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 3rem;
   }
-</div>
+
+  .skill {
+    width: 100%;
+    max-width: 12.5rem;
+  }
+
+  .skill > * {
+    width: fit-content;
+    margin-inline: auto;
+  }
+
+  .skill h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .skill li {
+    font-size: 1.125rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>

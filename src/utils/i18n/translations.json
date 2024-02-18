@@ -6,7 +6,7 @@
     "section.contact.text": "N'hésitez pas à me contacter par email, via mes réseaux sociaux, ou tout simplement à télécharger mon CV.",
     "section.contact.title": "Contact",
     "section.experiences.title": "Expériences",
-    "section.home.introduction": "{job}. Passionné par la création de solutions technologiques, j'adore également relever de nouveaux défis.",
+    "section.home.introduction": "{job}. Passionné par la création de solutions technologiques, constamment en quête de nouveaux défis à relever.",
     "section.home.job": "Ingénieur Full-Stack",
     "section.home.name": "Antonin Ginet",
     "section.home.title": "Accueil",
@@ -16,6 +16,7 @@
     "section.lab.title": "Lab",
     "section.projects.title": "Projets",
     "section.skills.title": "Compétences",
+    "section.skills.text": "Ma capacité à m'adapter rapidement à différents contextes de développement est un de mes atouts majeurs. Voici un aperçu des compétences sur lesquelles je travaille en ce moment.",
     "social.cv": "Télécharger CV",
     "social.email": "antonin.ginet98@gmail.com",
     "social.github": "GitHub",
@@ -27,7 +28,7 @@
     "footer.source-code": "Website source code available on {github}",
     "section.contact.text": "Feel free to contact me by email, through my social networks, or simply download my resume.",
     "section.experiences.title": "Experiences",
-    "section.home.introduction": "{job}. Passionate about creating technological solutions, I also love taking on new challenges.",
+    "section.home.introduction": "{job}. Passionate about crafting technological solutions, constantly seeking out new challenges to tackle.",
     "section.home.job": "Full-Stack Engineer",
     "section.home.title": "Home",
     "section.home.welcome": "Hey there! My name is -",
@@ -35,6 +36,7 @@
     "section.lab.text": "Come and visit my secret laboratory, where I store my various web creations!",
     "section.projects.title": "Projects",
     "section.skills.title": "Skills",
+    "section.skills.text": "My ability to quickly adapt to various development contexts is one of my major strengths. Here is an overview of the skills I am currently working on.",
     "social.cv": "Download resume"
   }
 }
