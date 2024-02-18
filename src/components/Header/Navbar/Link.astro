@@ -39,9 +39,9 @@ const { href, value, icon } = Astro.props;
 
   @media (width > 64em) {
     a {
-      --size: initial;
-      background-color: initial;
-      border-radius: initial;
+      --size: auto;
+      background-color: transparent;
+      border-radius: 0;
       padding: 0;
     }
   }
@@ -54,7 +54,7 @@ const { href, value, icon } = Astro.props;
   @media (width > 64em) {
     a:hover,
     a:focus {
-      background-color: initial;
+      background-color: transparent;
       color: var(--c-accent);
     }
   }
@@ -65,7 +65,7 @@ const { href, value, icon } = Astro.props;
 
   @media (width > 64em) {
     span {
-      display: initial;
+      display: inline;
       margin-left: 0.625rem;
     }
   }
