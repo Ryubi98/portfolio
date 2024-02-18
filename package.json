@@ -10,14 +10,15 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@astrojs/check": "0.5.1",
+    "@astrojs/check": "0.5.4",
+    "@astrojs/mdx": "2.1.1",
     "@vitejs/plugin-basic-ssl": "1.1.0",
-    "astro": "4.3.5",
-    "astro-compress": "2.2.9",
-    "husky": "9.0.10",
+    "astro": "4.4.0",
+    "astro-compress": "2.2.10",
+    "husky": "9.0.11",
     "lint-staged": "15.2.2",
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0",
+    "prettier": "3.2.5",
+    "prettier-plugin-astro": "0.13.0",
     "typescript": "5.3.3"
   },
   "lint-staged": {
