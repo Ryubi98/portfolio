@@ -2,6 +2,7 @@
 import Column from '@components/Column.astro';
 import Icon from '@components/Icon.astro';
 import Link from '@components/Link.astro';
+import Paragraph from '@components/Paragraph.astro';
 import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 
@@ -10,7 +11,9 @@ const t = useTranslations(lang);
 ---
 
 <Column>
-  <p>{t('section.lab.text')}</p>
+  <Paragraph>
+    {t('section.lab.text')}
+  </Paragraph>
   <Link href={`${prefixBase}/${lang}/lab`} format="button">
     <span>{t('section.lab.access-to')}</span>
     <Icon icon="fa-solid fa-flask-vial" />

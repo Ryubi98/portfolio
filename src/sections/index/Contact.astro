@@ -1,5 +1,6 @@
 ---
 import Column from '@components/Column.astro';
+import Paragraph from '@components/Paragraph.astro';
 import Socials from '@components/Socials.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 
@@ -8,6 +9,8 @@ const t = useTranslations(lang);
 ---
 
 <Column>
-  <p>{t('section.contact.text')}</p>
+  <Paragraph>
+    {t('section.contact.text')}
+  </Paragraph>
   <Socials />
 </Column>
