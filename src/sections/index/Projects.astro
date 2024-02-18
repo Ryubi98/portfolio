@@ -1,9 +1,37 @@
 ---
+import { type LangParams } from '@utils/i18n/utils';
+import { getCollection } from 'astro:content';
 
+const { lang } = Astro.params as LangParams;
+
+const projects = await Promise.all(
+  (await getCollection('projects', (project) => project.slug.startsWith(lang)))
+    .toSorted((prev, next) => {
+      if (prev.data.dateEnd === 'today') {
+        if (next.data.dateEnd === 'today') {
+          return prev.data.dateStart > next.data.dateStart ? -1 : 1;
+        }
+        return -1;
+      } else {
+        if (next.data.dateEnd === 'today') {
+          return 1;
+        }
+        if (prev.data.dateEnd === next.data.dateEnd) {
+          return prev.data.dateStart > next.data.dateStart ? -1 : 1;
+        }
+        return prev.data.dateEnd > next.data.dateEnd ? -1 : 1;
+      }
+    })
+    .map((project) => project.render())
+);
 ---
 
-<div>Projects</div>
-
-<!-- Portfolio -->
-<!-- Learn & Run -->
-<!-- CloudVault -->
+<ul class="projects">
+  {
+    projects.map((project) => (
+      <li class="project">
+        <project.Content />
+      </li>
+    ))
+  }
+</ul>

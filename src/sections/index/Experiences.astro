@@ -1,9 +1,37 @@
 ---
+import { type LangParams } from '@utils/i18n/utils';
+import { getCollection } from 'astro:content';
 
+const { lang } = Astro.params as LangParams;
+
+const experiences = await Promise.all(
+  (await getCollection('experiences', (experience) => experience.slug.startsWith(lang)))
+    .toSorted((prev, next) => {
+      if (prev.data.dateEnd === 'today') {
+        if (next.data.dateEnd === 'today') {
+          return prev.data.dateStart > next.data.dateStart ? -1 : 1;
+        }
+        return -1;
+      } else {
+        if (next.data.dateEnd === 'today') {
+          return 1;
+        }
+        if (prev.data.dateEnd === next.data.dateEnd) {
+          return prev.data.dateStart > next.data.dateStart ? -1 : 1;
+        }
+        return prev.data.dateEnd > next.data.dateEnd ? -1 : 1;
+      }
+    })
+    .map((experience) => experience.render())
+);
 ---
 
-<div>Experiences</div>
-
-<!-- Karetis -->
-<!-- JCDecaux -->
-<!-- Wediagnostix -->
+<ul class="experiences">
+  {
+    experiences.map((experience) => (
+      <li class="experience">
+        <experience.Content />
+      </li>
+    ))
+  }
+</ul>
