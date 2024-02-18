@@ -29,9 +29,15 @@ const socials: Social[] = [
     label: t('social.cv'),
   },
 ];
+
+interface Props {
+  align?: 'left' | 'center' | 'right';
+}
+
+const { align = 'left' } = Astro.props as Props;
 ---
 
-<ul>
+<ul class={align}>
   {
     socials.map((social) => (
       <li>
@@ -49,5 +55,17 @@ const socials: Social[] = [
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  ul.left {
+    justify-content: flex-start;
+  }
+
+  ul.center {
+    justify-content: center;
+  }
+
+  ul.right {
+    justify-content: flex-end;
   }
 </style>
