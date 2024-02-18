@@ -1,0 +1,34 @@
+---
+import { type HTMLAttributes } from 'astro/types';
+
+interface Props {
+  href: HTMLAttributes<'a'>['href'];
+  target?: HTMLAttributes<'a'>['target'];
+}
+
+const { href, target } = Astro.props;
+---
+
+<a href={href} target={target}><slot /></a>
+
+<style>
+  a {
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a {
+      transition:
+        color 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+    }
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--c-accent);
+    transform: scale(1.05);
+  }
+</style>
