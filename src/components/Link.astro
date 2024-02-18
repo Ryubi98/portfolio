@@ -2,20 +2,32 @@
 import { type HTMLAttributes } from 'astro/types';
 
 interface Props {
+  format?: 'simple' | 'button';
   href: HTMLAttributes<'a'>['href'];
   target?: HTMLAttributes<'a'>['target'];
 }
 
-const { href, target } = Astro.props;
+const { format = 'simple', href, target } = Astro.props;
 ---
 
-<a href={href} target={target}><slot /></a>
+<a class={format} href={href} target={target}><slot /></a>
 
 <style>
-  a {
+  a.simple {
     display: inline-block;
     text-decoration: underline;
     text-underline-offset: 0.1em;
+  }
+
+  a.button {
+    line-height: 1;
+    padding: 0.625rem 1rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark-text);
+    background-color: var(--c-primary);
   }
 
   @media (prefers-reduced-motion: no-preference) {

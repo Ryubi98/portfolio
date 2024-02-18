@@ -1,6 +1,7 @@
 ---
 import Column from '@components/Column.astro';
 import Icon from '@components/Icon.astro';
+import Link from '@components/Link.astro';
 import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 
@@ -10,35 +11,8 @@ const t = useTranslations(lang);
 
 <Column>
   <p>{t('section.lab.text')}</p>
-  <a href={`${prefixBase}/${lang}/lab`}>
+  <Link href={`${prefixBase}/${lang}/lab`} format="button">
     <span>{t('section.lab.access-to')}</span>
     <Icon icon="fa-solid fa-flask-vial" />
-  </a>
+  </Link>
 </Column>
-
-<style>
-  a {
-    line-height: 1;
-    padding: 0.625rem 1rem;
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--dark-text);
-    background-color: var(--c-primary);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    a {
-      transition:
-        background-color 0.3s ease-in-out,
-        transform 0.3s ease-in-out;
-    }
-  }
-
-  a:hover,
-  a:focus {
-    background-color: var(--c-accent);
-    transform: scale(1.05);
-  }
-</style>

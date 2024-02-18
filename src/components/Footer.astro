@@ -1,8 +1,8 @@
 ---
 import Column from '@components/Column.astro';
+import Link from '@components/Link.astro';
 import Wrapper from '@components/Wrapper.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
-import SimpleLink from './SimpleLink.astro';
 
 const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
@@ -15,9 +15,9 @@ const t = useTranslations(lang);
         {
           t('footer.source-code', {
             github: (
-              <SimpleLink href="https://github.com/ryubi98/portfolio" target="_blank">
+              <Link href="https://github.com/ryubi98/portfolio" target="_blank">
                 {t('footer.github')}
-              </SimpleLink>
+              </Link>
             ),
           })
         }

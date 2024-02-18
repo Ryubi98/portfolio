@@ -1,5 +1,5 @@
 ---
-import SimpleLink from '@components/SimpleLink.astro';
+import Link from '@components/Link.astro';
 import { slugLangs, type LangParams } from '@utils/i18n/utils';
 import { getDestinationFromUrl, getUrlFromDestinationAndLang } from '@utils/routing';
 
@@ -10,9 +10,7 @@ const { lang: currentLang } = Astro.params as LangParams;
   {
     slugLangs.map((lang) => (
       <span class:list={[{ current: lang === currentLang }]}>
-        <SimpleLink href={getUrlFromDestinationAndLang(getDestinationFromUrl(Astro.url), lang)}>
-          {lang.toUpperCase()}
-        </SimpleLink>
+        <Link href={getUrlFromDestinationAndLang(getDestinationFromUrl(Astro.url), lang)}>{lang.toUpperCase()}</Link>
       </span>
     ))
   }
