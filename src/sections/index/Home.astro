@@ -62,13 +62,16 @@ const t = useTranslations(lang);
     position: relative;
     right: 0.5rem;
     font-size: 1.5rem;
-    color: var(--c-primary-100);
+    color: var(--c-primary);
   }
 
   h1 {
     font-size: clamp(3rem, 5vw + 1rem, 6.2rem);
     font-weight: 700;
-    color: var(--c-primary-100);
+    background: linear-gradient(120deg, var(--c-primary), var(--c-accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   @media (width > 54em) {

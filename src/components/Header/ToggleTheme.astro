@@ -33,8 +33,8 @@ import Icon from '@components/Icon.astro';
     height: var(--size);
     border-radius: 50%;
     cursor: pointer;
-    color: var(--c-text-100);
-    background-color: var(--c-secondary-40);
+    color: var(--dark-text);
+    background-color: var(--c-secondary);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -47,8 +47,8 @@ import Icon from '@components/Icon.astro';
 
   button:hover,
   button:focus {
-    background-color: var(--c-accent-80);
-    transform: scale(1.1);
+    background-color: var(--c-accent);
+    transform: scale(1.05);
   }
 
   .circle {
@@ -62,11 +62,11 @@ import Icon from '@components/Icon.astro';
   }
 
   .circle.light {
-    background-color: var(--light-background-100);
+    background-color: var(--light-background);
   }
 
   .circle.dark {
-    background-color: var(--dark-background-100);
+    background-color: var(--dark-background);
   }
 
   @media (prefers-reduced-motion: no-preference) {
