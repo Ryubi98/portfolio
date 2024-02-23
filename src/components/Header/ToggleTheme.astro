@@ -1,11 +1,11 @@
 ---
-import Icon from '@components/Icon.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <toggle-theme>
   <button>
-    <Icon icon=`fa-solid fa-sun` />
-    <Icon icon=`fa-solid fa-moon` />
+    <Icon name="mdi:white-balance-sunny" class="sun" />
+    <Icon name="mdi:moon-and-stars" class="moon" />
     <div class="circle" style="--order: 0"></div>
     <div class="circle" style="--order: 1"></div>
     <div class="circle" style="--order: 2"></div>
@@ -14,15 +14,19 @@ import Icon from '@components/Icon.astro';
 </toggle-theme>
 
 <style>
-  toggle-theme :global(.fa-sun) {
+  toggle-theme .sun {
     display: none;
   }
 
-  :global(html.dark-theme) toggle-theme :global(.fa-sun) {
+  toggle-theme .moon {
     display: inline-block;
   }
 
-  :global(html.dark-theme) toggle-theme :global(.fa-moon) {
+  :global(html.dark-theme) toggle-theme .sun {
+    display: inline-block;
+  }
+
+  :global(html.dark-theme) toggle-theme .moon {
     display: none;
   }
 

@@ -3,11 +3,11 @@
   "title": "Design",
   "list": [
     {
-      "icon": "fa-brands fa-figma",
+      "icon": "simple-icons:figma",
       "name": "Figma"
     },
     {
-      "icon": "fa-solid fa-m",
+      "icon": "simple-icons:mui",
       "name": "Material UI"
     }
   ]

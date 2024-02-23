@@ -3,15 +3,15 @@
   "title": "Back",
   "list": [
     {
-      "icon": "fa-brands fa-java",
+      "icon": "mdi:language-java",
       "name": "Java"
     },
     {
-      "icon": "fa-solid fa-leaf",
+      "icon": "simple-icons:springboot",
       "name": "Spring Boot"
     },
     {
-      "icon": "fa-solid fa-database",
+      "icon": "simple-icons:postgresql",
       "name": "PostgreSQL"
     }
   ]

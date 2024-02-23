@@ -3,15 +3,15 @@
   "title": "Devops",
   "list": [
     {
-      "icon": "fa-brands fa-docker",
+      "icon": "simple-icons:docker",
       "name": "Docker"
     },
     {
-      "icon": "fa-brands fa-github",
+      "icon": "simple-icons:githubactions",
       "name": "GitHub Actions"
     },
     {
-      "icon": "fa-solid fa-n",
+      "icon": "simple-icons:nginx",
       "name": "Nginx"
     }
   ]

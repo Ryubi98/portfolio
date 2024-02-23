@@ -1,8 +1,8 @@
 ---
 import Column from '@components/Column.astro';
-import Icon from '@components/Icon.astro';
 import Paragraph from '@components/Paragraph.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
+import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 
 const { lang } = Astro.params as LangParams;
@@ -23,7 +23,7 @@ const skills = (await getCollection('skills'))
           <ul>
             {skill.list.map((item) => (
               <li>
-                <Icon icon={item.icon} />
+                <Icon name={item.icon} />
                 {item.name}
               </li>
             ))}

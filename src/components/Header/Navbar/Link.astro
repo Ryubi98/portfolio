@@ -1,6 +1,6 @@
 ---
-import Icon from '@components/Icon.astro';
 import { type TranslatedMessage } from '@utils/i18n/utils';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
   href: string;
@@ -12,7 +12,7 @@ const { href, value, icon } = Astro.props;
 ---
 
 <a href={href}>
-  {icon && <Icon icon={icon} />}
+  {icon && <Icon name={icon} />}
   <span>{value}</span>
 </a>
 
