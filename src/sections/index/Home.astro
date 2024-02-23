@@ -1,7 +1,6 @@
 ---
 import Column from '@components/Column.astro';
 import Socials from '@components/Socials.astro';
-import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 
 const { lang } = Astro.params as LangParams;
@@ -9,7 +8,7 @@ const t = useTranslations(lang);
 ---
 
 <div class="flex-container">
-  <img src=`${prefixBase}/antonin-ginet.jpg` alt="Antonin Ginet" />
+  <img src="antonin-ginet.jpg" alt="Antonin Ginet" />
   <Column size="large">
     <div class="content">
       <p class="greetings">{t('section.home.welcome')}</p>

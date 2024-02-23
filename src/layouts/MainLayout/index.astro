@@ -1,7 +1,6 @@
 ---
 import Footer from '@components/Footer.astro';
 import '@styles/global.css';
-import { prefixBase } from '@utils/global';
 import { type LangParams } from '@utils/i18n/utils';
 import AlternateLang from './AlternateLang.astro';
 import ThemeScript from './ThemeScript.astro';
@@ -24,7 +23,7 @@ const { lang } = Astro.params as LangParams;
     <meta name="author" content="Antonin Ginet" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href=`${prefixBase}/favicon.svg` />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <AlternateLang />
     <ThemeScript />
   </head>
