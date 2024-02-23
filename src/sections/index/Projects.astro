@@ -1,4 +1,5 @@
 ---
+import ContentCard from '@components/ContentCard.astro';
 import { type LangParams } from '@utils/i18n/utils';
 import { getCollection } from 'astro:content';
 
@@ -22,7 +23,7 @@ const projects = await Promise.all(
         return prev.data.dateEnd > next.data.dateEnd ? -1 : 1;
       }
     })
-    .map((project) => project.render())
+    .map((project) => project.render().then(({ Content }) => ({ ...project.data, Content })))
 );
 ---
 
@@ -30,7 +31,9 @@ const projects = await Promise.all(
   {
     projects.map((project) => (
       <li class="project">
-        <project.Content />
+        <ContentCard img={project.img} imgAlt={project.imgAlt}>
+          <project.Content />
+        </ContentCard>
       </li>
     ))
   }

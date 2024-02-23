@@ -5,6 +5,8 @@ const experiencesCollection = defineCollection({
   schema: z.object({
     dateStart: z.coerce.date(),
     dateEnd: z.coerce.date().or(z.literal('today')),
+    img: z.string(),
+    imgAlt: z.string(),
   }),
 });
 
@@ -13,6 +15,8 @@ const projectsCollection = defineCollection({
   schema: z.object({
     dateStart: z.coerce.date(),
     dateEnd: z.coerce.date().or(z.literal('today')),
+    img: z.string(),
+    imgAlt: z.string(),
   }),
 });
 
