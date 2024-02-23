@@ -12,9 +12,12 @@
   "devDependencies": {
     "@astrojs/check": "0.5.5",
     "@astrojs/mdx": "2.1.1",
+    "@iconify-json/mdi": "1.1.64",
+    "@iconify-json/simple-icons": "1.1.92",
     "@vitejs/plugin-basic-ssl": "1.1.0",
-    "astro": "4.4.3",
+    "astro": "4.4.4",
     "astro-compress": "2.2.10",
+    "astro-icon": "1.1.0",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
