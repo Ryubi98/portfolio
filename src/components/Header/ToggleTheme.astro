@@ -14,16 +14,16 @@ import Icon from '@components/Icon.astro';
 </toggle-theme>
 
 <style>
-  :global(toggle-theme .fa-sun) {
+  toggle-theme :global(.fa-sun) {
     display: none;
   }
 
-  :global(.dark-theme toggle-theme .fa-moon) {
-    display: none;
+  :global(html.dark-theme) toggle-theme :global(.fa-sun) {
+    display: inline-block;
   }
 
-  :global(.dark-theme toggle-theme .fa-sun) {
-    display: unset;
+  :global(html.dark-theme) toggle-theme :global(.fa-moon) {
+    display: none;
   }
 
   button {
