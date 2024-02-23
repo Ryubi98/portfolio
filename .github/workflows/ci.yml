@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository using git
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install, build site
-        uses: withastro/action@v1
+        uses: withastro/action@v2
         with:
           node-version: 20
