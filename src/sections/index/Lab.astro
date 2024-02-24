@@ -12,7 +12,16 @@ const t = useTranslations(lang);
 <Paragraph>
   {t('section.lab.text')}
 </Paragraph>
-<Link href={`${prefixBase}/${lang}/lab`} format="button">
-  <span>{t('section.lab.access-to')}</span>
-  <Icon name="mdi:flask" />
-</Link>
+<div class="center">
+  <Link href={`${prefixBase}/${lang}/lab`} format="button">
+    <span>{t('section.lab.access-to')}</span>
+    <Icon name="mdi:flask" />
+  </Link>
+</div>
+
+<style>
+  .center {
+    width: fit-content;
+    margin-inline: auto;
+  }
+</style>
