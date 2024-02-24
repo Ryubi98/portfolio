@@ -45,12 +45,23 @@ const t = useTranslations(lang);
     text-align: center;
   }
 
+  @media (width > 54em) {
+    .content {
+      text-align: left;
+    }
+  }
+
   .greetings {
-    /* z-index: -1;
-    position: relative;
-    right: 0.5rem; */
     font-size: 1.5rem;
     color: var(--c-primary);
+  }
+
+  @media (width > 54em) {
+    .greetings {
+      z-index: -1;
+      position: relative;
+      right: 0.5rem;
+    }
   }
 
   h1 {
@@ -67,6 +78,11 @@ const t = useTranslations(lang);
     max-width: 50rem;
   }
 
+  h1,
+  .description {
+    margin-top: 1rem;
+  }
+
   .job {
     font-weight: 700;
   }
@@ -74,5 +90,11 @@ const t = useTranslations(lang);
   .socials {
     margin-top: 1.5rem;
     justify-content: center;
+  }
+
+  @media (width > 54em) {
+    .socials {
+      justify-content: flex-start;
+    }
   }
 </style>
