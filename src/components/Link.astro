@@ -31,16 +31,28 @@ const { format = 'simple', href, target } = Astro.props;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    a {
+    a.simple {
       transition:
         color 0.3s ease-in-out,
         transform 0.3s ease-in-out;
     }
+
+    a.button {
+      transition:
+        background-color 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+    }
   }
 
-  a:hover,
-  a:focus {
+  a.simple:hover,
+  a.simple:focus {
     color: var(--c-accent);
+    transform: scale(1.05);
+  }
+
+  a.button:hover,
+  a.button:focus {
+    background-color: var(--c-accent);
     transform: scale(1.05);
   }
 </style>
