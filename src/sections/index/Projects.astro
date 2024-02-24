@@ -1,5 +1,6 @@
 ---
 import ContentCard from '@components/ContentCard.astro';
+import FlexList from '@components/FlexList.astro';
 import { type LangParams } from '@utils/i18n/utils';
 import { getCollection } from 'astro:content';
 
@@ -27,14 +28,21 @@ const projects = await Promise.all(
 );
 ---
 
-<ul class="projects">
+<FlexList>
   {
     projects.map((project) => (
-      <li class="project">
+      <li>
         <ContentCard img={project.img} imgAlt={project.imgAlt}>
           <project.Content />
         </ContentCard>
       </li>
     ))
   }
-</ul>
+</FlexList>
+
+<style>
+  li {
+    min-width: min(100%, 20rem);
+    max-width: 26rem;
+  }
+</style>

@@ -9,6 +9,7 @@ import Lab from '@sections/index/Lab.astro';
 import Projects from '@sections/index/Projects.astro';
 import Skills from '@sections/index/Skills.astro';
 import { getLangStaticPaths, useTranslations, type LangParams, type TranslatedMessage } from '@utils/i18n/utils';
+import { type AstroComponentFactory } from 'astro/runtime/server/index.js';
 
 export { getLangStaticPaths as getStaticPaths };
 
@@ -19,7 +20,7 @@ type Section = {
   id: string;
   icon: string;
   value: TranslatedMessage;
-  Component: (props: Record<string, any>) => any;
+  Component: AstroComponentFactory;
 };
 
 const sections: Section[] = [

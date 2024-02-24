@@ -23,18 +23,6 @@ const { isMainSection, id, title } = Astro.props;
     margin-bottom: 6rem;
   }
 
-  @media (width > 54em) {
-    section {
-      margin-bottom: 8rem;
-    }
-  }
-
-  @media (width > 64em) {
-    section {
-      margin-bottom: 10rem;
-    }
-  }
-
   section.main {
     --margin: 1rem;
     --header-padding-block: 1rem;
@@ -60,12 +48,5 @@ const { isMainSection, id, title } = Astro.props;
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
-  }
-
-  @media (width > 54em) {
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
   }
 </style>

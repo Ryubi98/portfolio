@@ -8,15 +8,13 @@ const t = useTranslations(lang);
 
 <div class="flex-container">
   <img src="antonin-ginet.jpg" alt="Antonin Ginet" />
-  <div>
-    <div class="content">
-      <p class="greetings">{t('section.home.welcome')}</p>
-      <h1>{t('section.home.name')}</h1>
-      <p class="description">
-        {t('section.home.introduction', { job: <span class="job">{t('section.home.job')}</span> })}
-      </p>
-    </div>
-    <Socials />
+  <div class="content">
+    <p class="greetings">{t('section.home.welcome')}</p>
+    <h1>{t('section.home.name')}</h1>
+    <p class="description">
+      {t('section.home.introduction', { job: <span class="job">{t('section.home.job')}</span> })}
+    </p>
+    <Socials class="socials" />
   </div>
 </div>
 
@@ -43,22 +41,14 @@ const t = useTranslations(lang);
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
     line-height: 1.1;
-  }
-
-  @media (width > 54em) {
-    .content {
-      gap: 1rem;
-    }
+    text-align: center;
   }
 
   .greetings {
-    z-index: -1;
+    /* z-index: -1;
     position: relative;
-    right: 0.5rem;
+    right: 0.5rem; */
     font-size: 1.5rem;
     color: var(--c-primary);
   }
@@ -72,12 +62,6 @@ const t = useTranslations(lang);
     color: transparent;
   }
 
-  @media (width > 54em) {
-    h1 {
-      font-size: 5rem;
-    }
-  }
-
   .description {
     font-size: clamp(1.5rem, 1vw + 1rem, 2rem);
     max-width: 50rem;
@@ -85,5 +69,10 @@ const t = useTranslations(lang);
 
   .job {
     font-weight: 700;
+  }
+
+  .socials {
+    margin-top: 1.5rem;
+    justify-content: center;
   }
 </style>

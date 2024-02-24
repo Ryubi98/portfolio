@@ -1,4 +1,5 @@
 ---
+import FlexList from '@components/FlexList.astro';
 import Paragraph from '@components/Paragraph.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 import { Icon } from 'astro-icon/components';
@@ -13,7 +14,7 @@ const skills = (await getCollection('skills'))
 ---
 
 <Paragraph>{t('section.skills.text')}</Paragraph>
-<ul class="skills">
+<FlexList class="skills">
   {
     skills.map((skill) => (
       <li class="skill">
@@ -29,18 +30,15 @@ const skills = (await getCollection('skills'))
       </li>
     ))
   }
-</ul>
+</FlexList>
 
 <style>
   .skills {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 2rem;
+    margin-top: 1.5rem;
   }
 
   .skill {
-    width: min(100%, 10rem);
+    min-width: min(100%, 10rem);
   }
 
   .skill > * {
@@ -51,7 +49,7 @@ const skills = (await getCollection('skills'))
   .skill h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .skill li {
