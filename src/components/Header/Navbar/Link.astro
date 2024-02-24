@@ -18,13 +18,12 @@ const { href, value, icon } = Astro.props;
 
 <style>
   a {
-    --size: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: var(--size);
-    height: var(--size);
-    padding: 1rem;
+    font-size: 1.125rem;
+    padding: 0.625rem;
+    color: var(--dark-text);
     background-color: var(--c-secondary);
     border-radius: 0.3125rem;
   }
@@ -39,10 +38,10 @@ const { href, value, icon } = Astro.props;
 
   @media (width > 64em) {
     a {
-      --size: auto;
+      font-size: 1rem;
+      padding: 0;
       background-color: transparent;
       border-radius: 0;
-      padding: 0;
     }
   }
 
@@ -51,6 +50,7 @@ const { href, value, icon } = Astro.props;
     background-color: var(--c-accent);
     transform: scale(1.05);
   }
+
   @media (width > 64em) {
     a:hover,
     a:focus {
@@ -66,7 +66,7 @@ const { href, value, icon } = Astro.props;
   @media (width > 64em) {
     span {
       display: inline;
-      margin-left: 0.625rem;
+      margin-left: 0.3125rem;
     }
   }
 </style>

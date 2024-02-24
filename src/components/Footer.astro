@@ -34,8 +34,12 @@ const t = useTranslations(lang);
     --margin: 1rem;
     --navbar-margin-bottom: 1rem;
     --navbar-padding: 0.625rem;
-    --navbar-max-content-height: 2.5rem;
-    --extra-margin: calc(var(--navbar-margin-bottom) + 2 * var(--navbar-padding) + var(--navbar-max-content-height));
+    --navbar-max-content-padding: 0.625rem;
+    --navbar-max-content-height: 1.125rem;
+    --extra-margin: calc(
+      var(--navbar-margin-bottom) + 2 * var(--navbar-padding) + 2 * var(--navbar-max-content-padding) +
+        var(--navbar-max-content-height)
+    );
     margin-bottom: calc(var(--margin) + var(--extra-margin));
     margin-top: var(--margin);
   }
