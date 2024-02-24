@@ -1,5 +1,4 @@
 ---
-import Column from '@components/Column.astro';
 import Link from '@components/Link.astro';
 import Wrapper from '@components/Wrapper.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
@@ -10,22 +9,20 @@ const t = useTranslations(lang);
 
 <footer>
   <Wrapper>
-    <Column size="small">
-      <p>
-        {
-          t('footer.source-code', {
-            github: (
-              <Link href="https://github.com/ryubi98/portfolio" target="_blank">
-                {t('footer.github')}
-              </Link>
-            ),
-          })
-        }
-      </p>
-      <p>
-        {t('footer.copyright')}
-      </p>
-    </Column>
+    <p>
+      {
+        t('footer.source-code', {
+          github: (
+            <Link href="https://github.com/ryubi98/portfolio" target="_blank">
+              {t('footer.github')}
+            </Link>
+          ),
+        })
+      }
+    </p>
+    <p>
+      {t('footer.copyright')}
+    </p>
   </Wrapper>
 </footer>
 

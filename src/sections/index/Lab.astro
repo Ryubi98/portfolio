@@ -1,5 +1,4 @@
 ---
-import Column from '@components/Column.astro';
 import Link from '@components/Link.astro';
 import Paragraph from '@components/Paragraph.astro';
 import { prefixBase } from '@utils/global';
@@ -10,12 +9,10 @@ const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
 ---
 
-<Column>
-  <Paragraph>
-    {t('section.lab.text')}
-  </Paragraph>
-  <Link href={`${prefixBase}/${lang}/lab`} format="button">
-    <span>{t('section.lab.access-to')}</span>
-    <Icon name="mdi:flask" />
-  </Link>
-</Column>
+<Paragraph>
+  {t('section.lab.text')}
+</Paragraph>
+<Link href={`${prefixBase}/${lang}/lab`} format="button">
+  <span>{t('section.lab.access-to')}</span>
+  <Icon name="mdi:flask" />
+</Link>

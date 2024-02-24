@@ -1,5 +1,4 @@
 ---
-import Column from '@components/Column.astro';
 import Paragraph from '@components/Paragraph.astro';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 import { Icon } from 'astro-icon/components';
@@ -13,30 +12,27 @@ const skills = (await getCollection('skills'))
   .toSorted((prev, next) => prev.order - next.order);
 ---
 
-<Column>
-  <Paragraph>{t('section.skills.text')}</Paragraph>
-  <ul class="skills">
-    {
-      skills.map((skill) => (
-        <li class="skill">
-          <h3>{skill.title}</h3>
-          <ul>
-            {skill.list.map((item) => (
-              <li>
-                <Icon name={item.icon} />
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))
-    }
-  </ul>
-</Column>
+<Paragraph>{t('section.skills.text')}</Paragraph>
+<ul class="skills">
+  {
+    skills.map((skill) => (
+      <li class="skill">
+        <h3>{skill.title}</h3>
+        <ul>
+          {skill.list.map((item) => (
+            <li>
+              <Icon name={item.icon} />
+              {item.name}
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))
+  }
+</ul>
 
 <style>
   .skills {
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -44,8 +40,7 @@ const skills = (await getCollection('skills'))
   }
 
   .skill {
-    width: 100%;
-    max-width: 12.5rem;
+    width: min(100%, 10rem);
   }
 
   .skill > * {
