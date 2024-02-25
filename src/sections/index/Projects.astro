@@ -25,8 +25,8 @@ const projects = (await getCollection('projects'))
 
 <FlexList>
   {
-    projects.map((project) => (
-      <li>
+    projects.map((project, projectIndex) => (
+      <li class="apparition" style={`--apparition-delay: ${projectIndex + 1}`}>
         <ContentCard content={project} />
       </li>
     ))

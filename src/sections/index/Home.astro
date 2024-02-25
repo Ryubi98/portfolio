@@ -8,13 +8,13 @@ const t = useTranslations(lang);
 
 <div class="flex-container">
   <img src="antonin-ginet.jpg" alt="Antonin Ginet" />
-  <div class="content">
-    <p class="greetings">{t('home.welcome')}</p>
-    <h1>{t('home.name')}</h1>
-    <p class="description">
+  <div class="content apparition">
+    <p class="greetings apparition" style="--apparition-delay: 1">{t('home.welcome')}</p>
+    <h1 class="apparition" style="--apparition-delay: 2">{t('home.name')}</h1>
+    <p class="description apparition" style="--apparition-delay: 3">
       {t('home.introduction', { job: <span class="job">{t('home.job')}</span> })}
     </p>
-    <Socials class="socials" />
+    <Socials class="socials apparition" style="--apparition-delay: 4" />
   </div>
 </div>
 

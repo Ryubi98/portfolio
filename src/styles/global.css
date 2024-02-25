@@ -49,6 +49,21 @@
   :has(:target) {
     scroll-behavior: smooth;
   }
+
+  .apparition {
+    z-index: -1;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+    transition-delay: calc(var(--apparition-delay) * 0.1s);
+  }
+
+  .show .apparition {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 body {

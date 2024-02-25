@@ -13,15 +13,17 @@ const skills = (await getCollection('skills'))
   .toSorted((prev, next) => prev.order - next.order);
 ---
 
-<Paragraph>{t('skills.text')}</Paragraph>
+<Paragraph class="apparition" style="--apparition-delay: 1">{t('skills.text')}</Paragraph>
 <FlexList class="skills">
   {
-    skills.map((skill) => (
+    skills.map((skill, skillIndex) => (
       <li class="skill">
-        <h3>{skill.title}</h3>
+        <h3 class="apparition" style={`--apparition-delay: ${skillIndex + 2}`}>
+          {skill.title}
+        </h3>
         <ul>
-          {skill.list.map((item) => (
-            <li>
+          {skill.list.map((item, itemIndex) => (
+            <li class="apparition" style={`--apparition-delay: ${skillIndex + 2 + itemIndex + 1}`}>
               <Icon name={item.icon} />
               {item.name}
             </li>

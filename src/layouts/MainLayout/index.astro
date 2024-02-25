@@ -3,6 +3,7 @@ import Footer from '@components/Footer.astro';
 import '@styles/global.css';
 import { type LangParams } from '@utils/i18n/utils';
 import AlternateLang from './AlternateLang.astro';
+import ApparitionScript from './ApparitionScript.astro';
 import ThemeScript from './ThemeScript.astro';
 
 interface Props {
@@ -26,6 +27,7 @@ const { lang } = Astro.params as LangParams;
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <AlternateLang />
     <ThemeScript />
+    <ApparitionScript />
   </head>
   <body>
     <slot name="header" />

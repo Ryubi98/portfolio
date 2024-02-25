@@ -9,10 +9,10 @@ const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
 ---
 
-<Paragraph>
+<Paragraph class="apparition" style="--apparition-delay: 1">
   {t('lab.text')}
 </Paragraph>
-<div class="center">
+<div class="center apparition" style="--apparition-delay: 2">
   <Link href={`${prefixBase}/${lang}/lab`} format="button">
     <span>{t('lab.access-to')}</span>
     <Icon name="mdi:flask" />

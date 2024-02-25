@@ -25,8 +25,8 @@ const experiences = (await getCollection('experiences'))
 
 <FlexList>
   {
-    experiences.map((experience) => (
-      <li>
+    experiences.map((experience, experienceIndex) => (
+      <li class="apparition" style={`--apparition-delay: ${experienceIndex + 1}`}>
         <ContentCard content={experience} />
       </li>
     ))

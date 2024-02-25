@@ -1,4 +1,8 @@
-<p><slot /></p>
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<p class={className} {...rest}><slot /></p>
 
 <style>
   p {

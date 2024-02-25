@@ -7,10 +7,10 @@ const { lang } = Astro.params as LangParams;
 const t = useTranslations(lang);
 ---
 
-<Paragraph>
+<Paragraph class="apparition" style="--apparition-delay: 1">
   {t('contact.text')}
 </Paragraph>
-<Socials class="socials" />
+<Socials class="socials apparition" style="--apparition-delay: 2" />
 
 <style>
   .socials {

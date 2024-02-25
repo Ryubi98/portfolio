@@ -13,7 +13,7 @@ const { isMainSection, id, title } = Astro.props;
 
 <section id={id} class:list={[{ main: isMainSection }]}>
   <Wrapper>
-    {!isMainSection && <h2>{title}</h2>}
+    {!isMainSection && <h2 class="apparition">{title}</h2>}
     <slot />
   </Wrapper>
 </section>
