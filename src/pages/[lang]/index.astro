@@ -1,5 +1,4 @@
 ---
-import Header from '@components/Header/index.astro';
 import Section from '@components/Section.astro';
 import MainLayout from '@layouts/MainLayout/index.astro';
 import Contact from '@sections/index/Contact.astro';
@@ -18,31 +17,25 @@ const t = useTranslations(lang);
 
 type Section = {
   id: string;
-  icon: string;
   value: TranslatedMessage;
   Component: AstroComponentFactory;
 };
 
 const sections: Section[] = [
-  { id: 'home', icon: 'mdi:house', value: t('home.title'), Component: Home },
-  { id: 'skills', icon: 'mdi:tools', value: t('skills.title'), Component: Skills },
+  { id: 'home', value: t('home.title'), Component: Home },
+  { id: 'skills', value: t('skills.title'), Component: Skills },
   {
     id: 'experiences',
-    icon: 'mdi:account-star',
     value: t('experiences.title'),
     Component: Experiences,
   },
-  { id: 'projects', icon: 'mdi:code', value: t('projects.title'), Component: Projects },
-  { id: 'lab', icon: 'mdi:flask', value: t('lab.title'), Component: Lab },
-  { id: 'contact', icon: 'mdi:contact', value: t('contact.title'), Component: Contact },
+  { id: 'projects', value: t('projects.title'), Component: Projects },
+  { id: 'lab', value: t('lab.title'), Component: Lab },
+  { id: 'contact', value: t('contact.title'), Component: Contact },
 ];
 ---
 
-<MainLayout title="title" description="description">
-  <Header
-    slot="header"
-    links={sections.map((section) => ({ href: `#${section.id}`, icon: section.icon, value: section.value }))}
-  />
+<MainLayout title="Antonin Ginet • Portfolio" description={t('head.index.description').join()}>
   {
     sections.map((section, index) => (
       <Section isMainSection={index === 0} id={section.id} title={section.value}>

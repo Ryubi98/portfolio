@@ -1,7 +1,8 @@
 ---
 import Footer from '@components/Footer.astro';
+import Header from '@components/Header/index.astro';
 import '@styles/global.css';
-import { type LangParams } from '@utils/i18n/utils';
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
 import AlternateLang from './AlternateLang.astro';
 import ApparitionScript from './ApparitionScript.astro';
 import ThemeScript from './ThemeScript.astro';
@@ -12,7 +13,18 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
 const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
+
+const links = [
+  { href: '/#home', icon: 'mdi:house', value: t('home.title') },
+  { href: '/#skills', icon: 'mdi:tools', value: t('skills.title') },
+  { href: '/#experiences', icon: 'mdi:account-star', value: t('experiences.title') },
+  { href: '/#projects', icon: 'mdi:code', value: t('projects.title') },
+  { href: '/#lab', icon: 'mdi:flask', value: t('lab.title') },
+  { href: '/#contact', icon: 'mdi:contact', value: t('contact.title') },
+];
 ---
 
 <!doctype html>
@@ -30,7 +42,9 @@ const { lang } = Astro.params as LangParams;
     <ApparitionScript />
   </head>
   <body>
-    <slot name="header" />
+    <slot name="header">
+      <Header links={links} />
+    </slot>
     <main>
       <slot />
     </main>

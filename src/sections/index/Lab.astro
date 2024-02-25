@@ -1,8 +1,8 @@
 ---
 import Link from '@components/Link.astro';
 import Paragraph from '@components/Paragraph.astro';
-import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
+import { getUrlFromDestinationAndLang } from '@utils/routing';
 import { Icon } from 'astro-icon/components';
 
 const { lang } = Astro.params as LangParams;
@@ -13,7 +13,7 @@ const t = useTranslations(lang);
   {t('lab.text')}
 </Paragraph>
 <div class="center apparition" style="--apparition-delay: 2">
-  <Link href={`${prefixBase}/${lang}/lab`} format="button">
+  <Link href={getUrlFromDestinationAndLang('/lab', lang)} format="button">
     <span>{t('lab.access-to')}</span>
     <Icon name="mdi:flask" />
   </Link>
