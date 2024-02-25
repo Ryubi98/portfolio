@@ -1,40 +1,33 @@
 ---
 import ContentCard from '@components/ContentCard.astro';
 import FlexList from '@components/FlexList.astro';
-import { type LangParams } from '@utils/i18n/utils';
 import { getCollection } from 'astro:content';
 
-const { lang } = Astro.params as LangParams;
-
-const experiences = await Promise.all(
-  (await getCollection('experiences', (experience) => experience.slug.startsWith(lang)))
-    .toSorted((prev, next) => {
-      if (prev.data.dateEnd === 'today') {
-        if (next.data.dateEnd === 'today') {
-          return prev.data.dateStart > next.data.dateStart ? -1 : 1;
-        }
-        return -1;
-      } else {
-        if (next.data.dateEnd === 'today') {
-          return 1;
-        }
-        if (prev.data.dateEnd === next.data.dateEnd) {
-          return prev.data.dateStart > next.data.dateStart ? -1 : 1;
-        }
-        return prev.data.dateEnd > next.data.dateEnd ? -1 : 1;
+const experiences = (await getCollection('experiences'))
+  .map((experience) => experience.data)
+  .toSorted((prev, next) => {
+    if (prev.dateEnd === 'today') {
+      if (next.dateEnd === 'today') {
+        return prev.dateStart > next.dateStart ? -1 : 1;
       }
-    })
-    .map((experience) => experience.render().then(({ Content }) => ({ ...experience.data, Content })))
-);
+      return -1;
+    } else {
+      if (next.dateEnd === 'today') {
+        return 1;
+      }
+      if (prev.dateEnd === next.dateEnd) {
+        return prev.dateStart > next.dateStart ? -1 : 1;
+      }
+      return prev.dateEnd > next.dateEnd ? -1 : 1;
+    }
+  });
 ---
 
 <FlexList>
   {
     experiences.map((experience) => (
       <li>
-        <ContentCard img={experience.img} imgAlt={experience.imgAlt}>
-          <experience.Content />
-        </ContentCard>
+        <ContentCard content={experience} />
       </li>
     ))
   }

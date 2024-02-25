@@ -1,0 +1,18 @@
+{
+  "dateStart": "2023-06-01",
+  "dateEnd": "2024-03-01",
+  "img": "antonin-ginet.jpg",
+  "imgAlt": "Antonin Ginet",
+  "title": "Portfolio",
+  "contentTranslationKey": "projects.portfolio.content",
+  "technologies": [
+    {
+      "icon": "simple-icons:astro",
+      "name": "Astro"
+    },
+    {
+      "icon": "simple-icons:typescript",
+      "name": "Typescript"
+    }
+  ]
+}

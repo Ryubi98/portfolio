@@ -1,0 +1,30 @@
+{
+  "dateStart": "2020-02-01",
+  "dateEnd": "2021-01-01",
+  "img": "learn-and-run.png",
+  "imgAlt": "Learn&Run logo",
+  "title": "Learn&Run",
+  "contentTranslationKey": "projects.learnandrun.content",
+  "technologies": [
+    {
+      "icon": "simple-icons:springboot",
+      "name": "Spring Boot"
+    },
+    {
+      "icon": "simple-icons:angular",
+      "name": "Angular"
+    },
+    {
+      "icon": "simple-icons:postgresql",
+      "name": "PostgreSQL"
+    },
+    {
+      "icon": "simple-icons:heroku",
+      "name": "Heroku"
+    },
+    {
+      "icon": "simple-icons:uikit",
+      "name": "UIKit"
+    }
+  ]
+}

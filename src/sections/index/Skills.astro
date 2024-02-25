@@ -13,7 +13,7 @@ const skills = (await getCollection('skills'))
   .toSorted((prev, next) => prev.order - next.order);
 ---
 
-<Paragraph>{t('section.skills.text')}</Paragraph>
+<Paragraph>{t('skills.text')}</Paragraph>
 <FlexList class="skills">
   {
     skills.map((skill) => (

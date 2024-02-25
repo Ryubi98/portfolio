@@ -1,0 +1,26 @@
+{
+  "dateStart": "2021-02-01",
+  "dateEnd": "2021-08-01",
+  "img": "jcdecaux.jpg",
+  "imgAlt": "JCDecaux logo",
+  "title": "JCDecaux",
+  "contentTranslationKey": "experiences.jcdecaux.content",
+  "technologies": [
+    {
+      "icon": "mdi:language-java",
+      "name": "J2EE"
+    },
+    {
+      "icon": "mdi:language-java",
+      "name": "JBoss"
+    },
+    {
+      "icon": "simple-icons:angular",
+      "name": "Angular"
+    },
+    {
+      "icon": "simple-icons:mysql",
+      "name": "MySQL"
+    }
+  ]
+}

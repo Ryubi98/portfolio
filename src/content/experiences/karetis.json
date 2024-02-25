@@ -1,0 +1,30 @@
+{
+  "dateStart": "2021-10-01",
+  "dateEnd": "today",
+  "img": "karetis.webp",
+  "imgAlt": "Karetis logo",
+  "title": "Karetis",
+  "contentTranslationKey": "experiences.karetis.content",
+  "technologies": [
+    {
+      "icon": "simple-icons:react",
+      "name": "React"
+    },
+    {
+      "icon": "simple-icons:redux",
+      "name": "Redux"
+    },
+    {
+      "icon": "simple-icons:mapbox",
+      "name": "MapboxGL"
+    },
+    {
+      "icon": "simple-icons:springboot",
+      "name": "Spring Boot"
+    },
+    {
+      "icon": "simple-icons:postgresql",
+      "name": "PostgreSQL"
+    }
+  ]
+}

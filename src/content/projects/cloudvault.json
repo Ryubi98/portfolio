@@ -1,0 +1,34 @@
+{
+  "dateStart": "2020-03-01",
+  "dateEnd": "2020-06-01",
+  "img": "cloud-vault.png",
+  "imgAlt": "CloudVault logo",
+  "title": "CloudVault",
+  "contentTranslationKey": "projects.cloudvault.content",
+  "technologies": [
+    {
+      "icon": "simple-icons:dotnet",
+      "name": ".NET"
+    },
+    {
+      "icon": "simple-icons:nginx",
+      "name": "Nginx"
+    },
+    {
+      "icon": "simple-icons:docker",
+      "name": "Docker Registry"
+    },
+    {
+      "icon": "simple-icons:sentry",
+      "name": "Sentry IO"
+    },
+    {
+      "icon": "mdi:counterclockwise-arrows",
+      "name": "Cron"
+    },
+    {
+      "icon": "simple-icons:microsoftsqlserver",
+      "name": "SQL Server"
+    }
+  ]
+}

@@ -14,14 +14,12 @@ export async function getLangStaticPaths() {
     params: { lang },
   }));
 }
+export type TranslationKey = keyof (typeof translations)[typeof defaultLang];
 export type TranslatedMessagePart = string | object;
 export type TranslatedMessage = TranslatedMessagePart[];
 
 export function useTranslations(lang: Lang) {
-  return function t(
-    key: keyof (typeof translations)[typeof defaultLang],
-    replace: Record<string, TranslatedMessagePart> = {}
-  ) {
+  return function t(key: TranslationKey, replace: Record<string, TranslatedMessagePart> = {}) {
     const result: TranslatedMessage = [
       isObjKey(key, translations[lang]) ? translations[lang][key] : translations[defaultLang][key],
     ];

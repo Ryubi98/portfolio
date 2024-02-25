@@ -1,13 +1,79 @@
 ---
+import { type Experience, type Project } from '@content/types';
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
+import { Icon } from 'astro-icon/components';
+
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
+
 interface Props {
-  img: string;
-  imgAlt: string;
+  content: Experience | Project;
 }
 
-const { img, imgAlt } = Astro.props;
+const { content } = Astro.props;
+const { img, imgAlt, title, contentTranslationKey, technologies } = content;
 ---
 
 <article>
   <img src={img} alt={imgAlt} />
-  <slot />
+  <h3>{title}</h3>
+  <p>{t(contentTranslationKey)}</p>
+  <div>
+    <ul>
+      {
+        technologies.map(({ icon, name }) => (
+          <li>
+            <Icon name={icon} />
+            {name}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </article>
+
+<style>
+  article {
+    height: 100%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--c-secondary);
+    display: flex;
+    flex-direction: column;
+  }
+
+  article img {
+    max-width: 3rem;
+    border-radius: 50%;
+  }
+
+  article h3 {
+    margin-block: 0.375rem;
+    font-size: 1.5rem;
+  }
+
+  article p {
+    font-size: 0.875rem;
+  }
+
+  article div {
+    margin-top: auto;
+  }
+
+  article ul {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  article li {
+    font-size: 0.875rem;
+    border-radius: 1rem;
+    padding-inline: 0.625rem;
+    background-color: var(--c-accent);
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+</style>
