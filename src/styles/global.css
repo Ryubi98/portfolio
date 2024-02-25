@@ -35,9 +35,14 @@
 }
 
 :has(:target) {
+  --margin: 1rem;
   --header-padding-block: 1rem;
-  --header-max-content-height: 2.5rem;
-  scroll-padding-top: calc(2 * var(--header-padding-block) + var(--header-max-content-height));
+  --header-max-content-padding: 0.625rem;
+  --header-max-content-height: 1.125rem;
+  scroll-padding-top: calc(
+    var(--margin) + 2 * var(--header-padding-block) + 2 * var(--header-max-content-padding) +
+      var(--header-max-content-height)
+  );
 }
 
 @media (prefers-reduced-motion: no-preference) {
