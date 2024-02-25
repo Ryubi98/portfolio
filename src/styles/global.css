@@ -51,7 +51,6 @@
   }
 
   .apparition {
-    z-index: -1;
     opacity: 0;
     transform: translateY(2rem);
     transition:
