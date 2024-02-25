@@ -1,7 +1,7 @@
 {
   "dateStart": "2021-10-01",
   "dateEnd": "today",
-  "img": "karetis.webp",
+  "img": "karetis.png",
   "imgAlt": "Karetis logo",
   "title": "Karetis",
   "contentTranslationKey": "experiences.karetis.content",
