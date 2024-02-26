@@ -29,22 +29,13 @@ const t = useTranslations(lang);
 <style>
   footer {
     --margin: 1rem;
-    --navbar-margin-bottom: 1rem;
-    --navbar-padding: 0.625rem;
-    --navbar-max-content-padding: 0.625rem;
-    --navbar-max-content-height: 1.125rem;
-    --extra-margin: calc(
-      var(--navbar-margin-bottom) + 2 * var(--navbar-padding) + 2 * var(--navbar-max-content-padding) +
-        var(--navbar-max-content-height)
-    );
-    margin-bottom: calc(var(--margin) + var(--extra-margin));
+    margin-bottom: calc(var(--margin) + var(--navbar-top-offset));
     text-align: center;
   }
 
   @media (width > 64em) {
     footer {
       --margin: 2rem;
-      --extra-margin: 0rem;
     }
   }
 </style>

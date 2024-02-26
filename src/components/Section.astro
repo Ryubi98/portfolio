@@ -25,19 +25,12 @@ const { isMainSection, id, title } = Astro.props;
 
   section.main {
     --margin: 1rem;
-    --header-padding-block: 1rem;
-    --header-max-content-padding: 0.625rem;
-    --header-max-content-height: 1.125rem;
-    --extra-margin: calc(
-      2 * var(--header-padding-block) + 2 * var(--header-max-content-padding) + var(--header-max-content-height)
-    );
-    margin-top: calc(var(--margin) + var(--extra-margin));
+    margin-top: calc(var(--margin) + var(--header-bottom-offset));
   }
 
   @media (width > 54em) {
     section.main {
       --margin: 0;
-      --extra-margin: 0;
       min-height: 100svh;
       display: flex;
       align-items: center;

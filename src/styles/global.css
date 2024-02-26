@@ -13,7 +13,27 @@
 
   --c-secondary: hsl(180, 69%, 72%, 100%);
 
-  --c-accent: hsl(296, 46%, 33%, 50%);
+  --header-padding-block: 1rem;
+  --header-max-content-padding: 0.625rem;
+  --header-max-content-height: 1.125rem;
+  --header-bottom-offset: calc(
+    2 * var(--header-padding-block) + 2 * var(--header-max-content-padding) + var(--header-max-content-height)
+  );
+
+  --navbar-margin-bottom: 1rem;
+  --navbar-padding: 0.625rem;
+  --navbar-max-content-padding: 0.625rem;
+  --navbar-max-content-height: 1.125rem;
+  --navbar-top-offset: calc(
+    var(--navbar-margin-bottom) + 2 * var(--navbar-padding) + 2 * var(--navbar-max-content-padding) +
+      var(--navbar-max-content-height)
+  );
+}
+
+@media (width > 64em) {
+  :root {
+    --navbar-top-offset: 0rem;
+  }
 }
 
 :root.dark-theme {
