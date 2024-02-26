@@ -16,13 +16,21 @@ export async function getLangStaticPaths() {
 }
 export type TranslationKey = keyof (typeof translations)[typeof defaultLang];
 export type TranslatedMessagePart = string | object;
-export type TranslatedMessage = TranslatedMessagePart[];
+export type TranslatedMessage = string | TranslatedMessagePart[];
 
 export function useTranslations(lang: Lang) {
-  return function t(key: TranslationKey, replace: Record<string, TranslatedMessagePart> = {}) {
-    const result: TranslatedMessage = [
-      isObjKey(key, translations[lang]) ? translations[lang][key] : translations[defaultLang][key],
-    ];
+  return function t<R extends Record<string, TranslatedMessagePart> | undefined = undefined>(
+    key: TranslationKey,
+    replace?: R
+  ): R extends undefined ? string : TranslatedMessagePart[] {
+    const translatedMessage = isObjKey(key, translations[lang])
+      ? translations[lang][key]
+      : translations[defaultLang][key];
+    if (!replace) {
+      return translatedMessage as any;
+    }
+
+    const result: TranslatedMessagePart[] = [translatedMessage];
 
     Object.entries(replace).forEach(([replaceKey, replaceValue]: [string, TranslatedMessagePart]) => {
       result.forEach((value: TranslatedMessagePart, index: number) => {
@@ -33,7 +41,7 @@ export function useTranslations(lang: Lang) {
 
         const arrayWithoutReplaceKey = value.split(`{${replaceKey}}`);
         const arrayWithReplaceValue = arrayWithoutReplaceKey.reduce(
-          (accumulator: TranslatedMessage, value: TranslatedMessagePart, index: number) => [
+          (accumulator: TranslatedMessagePart[], value: TranslatedMessagePart, index: number) => [
             ...accumulator,
             value,
             ...(index < arrayWithoutReplaceKey.length - 1 ? [replaceValue] : []),
@@ -43,6 +51,7 @@ export function useTranslations(lang: Lang) {
         result.splice(index, 1, ...arrayWithReplaceValue);
       });
     });
-    return result;
+
+    return result as any;
   };
 }
