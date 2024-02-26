@@ -59,7 +59,7 @@
     transition-delay: calc(var(--apparition-delay) * 0.1s);
   }
 
-  .show .apparition {
+  .apparition.show {
     opacity: 1;
     transform: none;
   }
