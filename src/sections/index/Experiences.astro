@@ -1,7 +1,11 @@
 ---
 import ContentCard from '@components/ContentCard.astro';
 import FlexList from '@components/FlexList.astro';
+import { useTranslations, type LangParams } from '@utils/i18n/utils';
 import { getCollection } from 'astro:content';
+
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
 
 const experiences = (await getCollection('experiences'))
   .map((experience) => experience.data)
@@ -27,7 +31,13 @@ const experiences = (await getCollection('experiences'))
   {
     experiences.map((experience, experienceIndex) => (
       <li class="apparition" style={`--apparition-delay: ${experienceIndex + 1}`}>
-        <ContentCard content={experience} />
+        <ContentCard
+          img={experience.img}
+          imgAlt={experience.imgAlt}
+          title={experience.title}
+          content={t(experience.contentTranslationKey)}
+          subItems={experience.technologies}
+        />
       </li>
     ))
   }

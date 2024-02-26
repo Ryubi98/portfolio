@@ -2,10 +2,14 @@
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header/index.astro';
 import '@styles/global.css';
+import { prefixBase } from '@utils/global';
 import { useTranslations, type LangParams } from '@utils/i18n/utils';
 import AlternateLang from './AlternateLang.astro';
 import ApparitionScript from './ApparitionScript.astro';
 import ThemeScript from './ThemeScript.astro';
+
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
 
 interface Props {
   title: string;
@@ -13,9 +17,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-
-const { lang } = Astro.params as LangParams;
-const t = useTranslations(lang);
 
 const links = [
   { href: '/#home', icon: 'mdi:house', value: t('home.title') },
@@ -36,7 +37,7 @@ const links = [
     <meta name="author" content="Antonin Ginet" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href=`${prefixBase}/favicon.ico` />
     <AlternateLang />
     <ThemeScript />
     <ApparitionScript />

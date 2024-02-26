@@ -4,12 +4,13 @@ import { getUrlFromDestinationAndLang } from '@utils/routing';
 import { type ComponentProps } from 'astro/types';
 import Link from './Link.astro';
 
+const { lang } = Astro.params as LangParams;
+
 interface Props {
   links: ComponentProps<typeof Link>[];
 }
 
 const { links } = Astro.props;
-const { lang } = Astro.params as LangParams;
 ---
 
 <nav>

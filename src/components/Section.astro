@@ -4,16 +4,17 @@ import { type TranslatedMessage } from '@utils/i18n/utils';
 
 interface Props {
   id: string;
-  isMainSection: boolean;
   title: TranslatedMessage;
+  showTitle?: boolean;
+  fullPage?: boolean;
 }
 
-const { isMainSection, id, title } = Astro.props;
+const { id, title, showTitle = true, fullPage = false } = Astro.props;
 ---
 
-<section id={id} class:list={[{ main: isMainSection }]}>
+<section id={id} class:list={[{ 'full-page': fullPage }]}>
   <Wrapper>
-    {!isMainSection && <h2 class="apparition">{title}</h2>}
+    {showTitle && <h2 class="apparition">{title}</h2>}
     <slot />
   </Wrapper>
 </section>
@@ -23,13 +24,13 @@ const { isMainSection, id, title } = Astro.props;
     margin-bottom: 7rem;
   }
 
-  section.main {
+  section:first-child {
     --margin: 1rem;
     margin-top: calc(var(--margin) + var(--header-bottom-offset));
   }
 
   @media (width > 54em) {
-    section.main {
+    section.full-page {
       --margin: 0;
       min-height: 100svh;
       display: flex;

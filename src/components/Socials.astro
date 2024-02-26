@@ -39,7 +39,7 @@ const { class: className, ...rest } = Astro.props;
       <li>
         <Link href={social.href} target="_blank" format="button">
           <Icon name={social.icon} />
-          {social.label}
+          <span>{social.label}</span>
         </Link>
       </li>
     ))

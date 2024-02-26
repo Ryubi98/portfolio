@@ -35,10 +35,10 @@ const sections: Section[] = [
 ];
 ---
 
-<MainLayout title="Antonin Ginet • Portfolio" description={t('head.index.description').join()}>
+<MainLayout title="Antonin Ginet • Portfolio" description={t('head.index.description')}>
   {
-    sections.map((section, index) => (
-      <Section isMainSection={index === 0} id={section.id} title={section.value}>
+    sections.map((section, sectionIndex) => (
+      <Section id={section.id} title={section.value} showTitle={sectionIndex !== 0} fullPage={sectionIndex === 0}>
         <section.Component />
       </Section>
     ))

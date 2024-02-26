@@ -1,30 +1,30 @@
 ---
-import { type Experience, type Project } from '@content/types';
-import { useTranslations, type LangParams } from '@utils/i18n/utils';
+import { prefixBase } from '@utils/global';
+import { type TranslatedMessage } from '@utils/i18n/utils';
 import { Icon } from 'astro-icon/components';
 
-const { lang } = Astro.params as LangParams;
-const t = useTranslations(lang);
-
 interface Props {
-  content: Experience | Project;
+  img?: string;
+  imgAlt?: string;
+  title: TranslatedMessage;
+  content: TranslatedMessage;
+  subItems: Array<{ icon: string; name: TranslatedMessage }>;
 }
 
-const { content } = Astro.props;
-const { img, imgAlt, title, contentTranslationKey, technologies } = content;
+const { img, imgAlt, title, content, subItems } = Astro.props;
 ---
 
 <article>
-  <img src={img} alt={imgAlt} />
+  {img && imgAlt && <img src={`${prefixBase}/${img}`} alt={imgAlt} />}
   <h3>{title}</h3>
-  <p>{t(contentTranslationKey)}</p>
+  <p>{content}</p>
   <div>
     <ul>
       {
-        technologies.map(({ icon, name }) => (
+        subItems.map(({ icon, name }) => (
           <li>
             <Icon name={icon} />
-            {name}
+            <span>{name}</span>
           </li>
         ))
       }
