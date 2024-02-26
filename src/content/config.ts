@@ -1,9 +1,14 @@
 import { defineCollection } from 'astro:content';
-import { experienceSchema, projectSchema, skillSchema } from './types';
+import { experienceSchema, labSchema, projectSchema, skillSchema } from './types';
 
 const experienceCollection = defineCollection({
   type: 'data',
   schema: experienceSchema,
+});
+
+const labCollection = defineCollection({
+  type: 'content',
+  schema: labSchema,
 });
 
 const projectCollection = defineCollection({
@@ -18,6 +23,7 @@ const skillCollection = defineCollection({
 
 export const collections = {
   experiences: experienceCollection,
+  lab: labCollection,
   projects: projectCollection,
   skills: skillCollection,
 };

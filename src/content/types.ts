@@ -15,6 +15,15 @@ export const experienceSchema = z.object({
 });
 export type Experience = z.infer<typeof experienceSchema>;
 
+export const labSchema = z.object({
+  date: z.coerce.date(),
+  title: z.string(),
+  descriptionTranslationKey: z.custom<TranslationKey>(
+    (value) => typeof value === 'string' && value in translations[defaultLang]
+  ),
+});
+export type Lab = z.infer<typeof labSchema>;
+
 export const projectSchema = z.object({
   dateStart: z.coerce.date(),
   dateEnd: z.coerce.date().or(z.literal('today')),
