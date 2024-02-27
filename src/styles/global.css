@@ -96,7 +96,7 @@ body {
 }
 
 main {
-  margin: auto;
+  margin-block: auto;
 }
 
 h1,
