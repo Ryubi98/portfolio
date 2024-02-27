@@ -22,5 +22,11 @@
       "icon": "simple-icons:mysql",
       "name": "MySQL"
     }
+  ],
+  "links": [
+    {
+      "icon": "mdi:web",
+      "href": "https://www.jcdecaux.com"
+    }
   ]
 }

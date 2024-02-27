@@ -1,0 +1,34 @@
+---
+import MainLayout from '@layouts/MainLayout/index.astro';
+import { getLangStaticPaths, useTranslations } from '@utils/i18n/utils';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const labItems = await getCollection('lab');
+  const langStaticPaths = await getLangStaticPaths();
+
+  return labItems.flatMap((labItem) => {
+    return langStaticPaths.map((langPath) => {
+      return {
+        params: {
+          ...langPath.params,
+          slug: labItem.slug,
+        },
+      };
+    });
+  });
+}
+
+const { lang, slug } = Astro.params;
+const t = useTranslations(lang);
+const labItem = await getEntry('lab', slug);
+const { title, descriptionTranslationKey } = labItem.data;
+const { Content } = await labItem.render();
+---
+
+<MainLayout title="Antonin Ginet • Lab" description={t('head.lab.description')}>
+  <p>Go back to page</p>
+  <p>{title}</p>
+  <p>{t(descriptionTranslationKey)}</p>
+  <Content />
+</MainLayout>

@@ -1,35 +1,51 @@
 ---
+import Link from '@components/Link.astro';
 import { prefixBase } from '@utils/global';
 import { type TranslatedMessage } from '@utils/i18n/utils';
 import { Icon } from 'astro-icon/components';
 
 interface Props {
+  class?: string;
   img?: string;
   imgAlt?: string;
   title: TranslatedMessage;
   content: TranslatedMessage;
-  subItems: Array<{ icon: string; name: TranslatedMessage }>;
+  subItems?: Array<{ icon: string; name: TranslatedMessage }>;
+  links?: Array<{ icon: string; href: string }>;
 }
 
-const { img, imgAlt, title, content, subItems } = Astro.props;
+const { class: className, img, imgAlt, title, content, subItems, links, ...rest } = Astro.props;
 ---
 
-<article>
+<article class={className} {...rest}>
   {img && imgAlt && <img src={`${prefixBase}/${img}`} alt={imgAlt} />}
   <h3>{title}</h3>
   <p>{content}</p>
-  <div>
-    <ul>
-      {
-        subItems.map(({ icon, name }) => (
-          <li>
-            <Icon name={icon} />
-            <span>{name}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  {
+    (subItems || links) && (
+      <div>
+        {subItems && (
+          <ul>
+            {subItems.map(({ icon, name }) => (
+              <li>
+                <Icon name={icon} />
+                <span>{name}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+        {links && (
+          <ul>
+            {links.map(({ icon, href }) => (
+              <Link href={href} format="button">
+                <Icon name={icon} />
+              </Link>
+            ))}
+          </ul>
+        )}
+      </div>
+    )
+  }
 </article>
 
 <style>

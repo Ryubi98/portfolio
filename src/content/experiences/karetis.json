@@ -26,5 +26,11 @@
       "icon": "simple-icons:postgresql",
       "name": "PostgreSQL"
     }
+  ],
+  "links": [
+    {
+      "icon": "mdi:web",
+      "href": "https://www.karetis.com"
+    }
   ]
 }

@@ -37,6 +37,7 @@ const experiences = (await getCollection('experiences'))
           title={experience.title}
           content={t(experience.contentTranslationKey)}
           subItems={experience.technologies}
+          links={experience.links}
         />
       </li>
     ))

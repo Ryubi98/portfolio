@@ -1,0 +1,47 @@
+---
+import ContentCard from '@components/ContentCard.astro';
+import Section from '@components/Section.astro';
+import MainLayout from '@layouts/MainLayout/index.astro';
+import { getLangStaticPaths, useTranslations, type LangParams } from '@utils/i18n/utils';
+import { getDestinationFromUrl, getUrlFromDestinationAndLang } from '@utils/routing';
+import { getCollection } from 'astro:content';
+
+export { getLangStaticPaths as getStaticPaths };
+
+const { lang } = Astro.params as LangParams;
+const t = useTranslations(lang);
+
+const labItems = (
+  await Promise.all((await getCollection('lab')).map((labItem) => ({ id: labItem.slug, ...labItem.data })))
+).toSorted((prev, next) => prev.date.getMilliseconds() - next.date.getMilliseconds());
+---
+
+<MainLayout title="Antonin Ginet • Lab" description={t('head.lab.description')}>
+  <Section id="lab" title={t('lab.title')} showTitle={false}>
+    <div class="grid">
+      {
+        labItems.map((labItem) => (
+          <ContentCard
+            class="apparition"
+            title={labItem.title}
+            content={t(labItem.descriptionTranslationKey)}
+            links={[
+              {
+                icon: 'mdi:share-all',
+                href: getUrlFromDestinationAndLang(`${getDestinationFromUrl(Astro.url)}/${labItem.id}`, lang),
+              },
+            ]}
+          />
+        ))
+      }
+    </div>
+  </Section>
+</MainLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+  }
+</style>

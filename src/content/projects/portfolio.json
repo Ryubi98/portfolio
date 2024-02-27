@@ -14,5 +14,11 @@
       "icon": "simple-icons:typescript",
       "name": "Typescript"
     }
+  ],
+  "links": [
+    {
+      "icon": "simple-icons:github",
+      "href": "https://github.com/Ryubi98/portfolio"
+    }
   ]
 }
