@@ -1,17 +1,14 @@
 <script>
   const elements = document.querySelectorAll('.apparition');
-  const intersectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        } else {
-          entry.target.classList.remove('show');
-        }
-      });
-    },
-    { rootMargin: '-100px' }
-  );
+  const intersectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  });
   elements.forEach((element) => {
     intersectionObserver.observe(element);
   });
