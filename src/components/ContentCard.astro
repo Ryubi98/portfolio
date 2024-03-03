@@ -37,7 +37,7 @@ const { class: className, img, imgAlt, title, content, subItems, links, ...rest 
         {links && (
           <ul>
             {links.map(({ icon, href }) => (
-              <Link href={href} format="button">
+              <Link href={href} target={href.startsWith('/') ? undefined : '_blank'} format="button">
                 <Icon name={icon} />
               </Link>
             ))}
