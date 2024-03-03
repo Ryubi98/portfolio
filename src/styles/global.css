@@ -80,7 +80,7 @@
 }
 
 :has(:target) {
-  --margin: 1rem;
+  --margin: 2rem;
   --header-padding-block: 1rem;
   --header-max-content-padding: 0.625rem;
   --header-max-content-height: 1.125rem;
