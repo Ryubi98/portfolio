@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://ryubi98.github.io',
   base: '/portfolio',
+  trailingSlash: 'always',
   integrations: [mdx(), icon()],
   vite: {
     plugins: [pluginBasicSsl()],

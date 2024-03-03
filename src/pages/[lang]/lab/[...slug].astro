@@ -29,7 +29,11 @@ const labItem = await getEntry('lab', slug);
 const { title, descriptionTranslationKey } = labItem.data;
 const { Content } = await labItem.render();
 
-const backUrl = Astro.url.pathname.split('/').slice(0, -1).join('/');
+const backUrl = `/${Astro.url.pathname
+  .split('/')
+  .filter((part) => part !== '' && !part.startsWith('#'))
+  .slice(0, -1)
+  .join('/')}/`;
 ---
 
 <MainLayout title="Antonin Ginet • Lab" description={t('head.lab.description')}>

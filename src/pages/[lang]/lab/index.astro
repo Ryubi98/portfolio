@@ -28,7 +28,7 @@ const labItems = (
             links={[
               {
                 icon: 'mdi:share-all',
-                href: getUrlFromDestinationAndLang(`${getDestinationFromUrl(Astro.url)}/${labItem.id}`, lang),
+                href: getUrlFromDestinationAndLang(`${getDestinationFromUrl(Astro.url)}${labItem.id}/`, lang),
               },
             ]}
           />
