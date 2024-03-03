@@ -4,7 +4,7 @@
 [![Last release date](https://img.shields.io/github/release-date/ryubi98/portfolio?label=Last%20release%20date)](https://github.com/Ryubi98/portfolio/releases)
 [![Last deploy pipiline status](https://img.shields.io/github/actions/workflow/status/ryubi98/portfolio/deploy-github-pages.yml?label=Pipeline)](https://github.com/Ryubi98/portfolio/actions/workflows/deploy-github-pages.yml)
 
-Host with ❤️ on [Github Pages](https://ryubi98.github.io/portfolio)
+Host with ❤️ on [Github Pages](https://ryubi98.github.io/portfolio/)
 
 ## 🧑‍💻 Commands
 
