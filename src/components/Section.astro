@@ -4,7 +4,7 @@ import { type TranslatedMessage } from '@utils/i18n/utils';
 
 interface Props {
   id: string;
-  title: TranslatedMessage;
+  title?: TranslatedMessage;
   showTitle?: boolean;
   fullPage?: boolean;
 }
@@ -14,7 +14,7 @@ const { id, title, showTitle = true, fullPage = false } = Astro.props;
 
 <section id={id} class:list={[{ 'full-page': fullPage }]}>
   <Wrapper>
-    {showTitle && <h2 class="apparition">{title}</h2>}
+    {title && showTitle && <h2 class="apparition">{title}</h2>}
     <slot />
   </Wrapper>
 </section>

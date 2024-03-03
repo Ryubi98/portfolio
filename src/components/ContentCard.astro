@@ -8,8 +8,8 @@ interface Props {
   class?: string;
   img?: string;
   imgAlt?: string;
-  title: TranslatedMessage;
-  content: TranslatedMessage;
+  title?: TranslatedMessage;
+  content?: TranslatedMessage;
   subItems?: Array<{ icon: string; name: TranslatedMessage }>;
   links?: Array<{ icon: string; href: string }>;
 }
@@ -19,8 +19,8 @@ const { class: className, img, imgAlt, title, content, subItems, links, ...rest 
 
 <article class={className} {...rest}>
   {img && imgAlt && <img src={`${prefixBase}/${img}`} alt={imgAlt} />}
-  <h3>{title}</h3>
-  <p>{content}</p>
+  {title && <h3>{title}</h3>}
+  {content && <p>{content}</p>}
   {
     (subItems || links) && (
       <div>
