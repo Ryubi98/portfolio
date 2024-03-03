@@ -1,0 +1,79 @@
+<div>
+  <span>I love</span>
+  <span class="text-dynamic">Programming.</span>
+</div>
+
+<script>
+  const element = document.querySelector('.text-dynamic');
+
+  const values = ['Programming.', 'Hiking.', 'Cat.'];
+  let index = 0;
+  let nbLetters = values[index].length;
+  let moveForwards = false;
+  let wait = true;
+
+  setInterval(function () {
+    if (!wait) {
+      if (moveForwards) {
+        nbLetters++;
+      } else {
+        nbLetters--;
+      }
+      if (nbLetters === values[index].length) {
+        moveForwards = false;
+        wait = true;
+        setTimeout(function () {
+          wait = false;
+        }, 3000);
+      }
+      if (nbLetters === 0) {
+        index = (index + 1) % values.length;
+        moveForwards = true;
+        wait = true;
+        setTimeout(function () {
+          wait = false;
+        }, 1000);
+      }
+
+      if (element) {
+        element.innerHTML = values[index].substring(0, nbLetters);
+      }
+    }
+  }, 100);
+
+  setTimeout(function () {
+    wait = false;
+  }, 1500);
+</script>
+
+<style>
+  div {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .text-dynamic {
+    position: relative;
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+    padding: 0 5px 0 5px;
+  }
+
+  .text-dynamic::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 90%;
+    width: 3px;
+    background: #0ef;
+    visibility: visible;
+    animation: blinking 1.5s steps(2, start) infinite;
+  }
+
+  @keyframes blinking {
+    to {
+      visibility: hidden;
+    }
+  }
+</style>
