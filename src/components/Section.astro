@@ -21,12 +21,24 @@ const { id, title, showTitle = true, fullPage = false } = Astro.props;
 
 <style>
   section {
-    margin-bottom: 7rem;
+    --margin: 6rem;
+    margin-block: var(--margin);
+  }
+
+  @media (width > 54em) {
+    section {
+      --margin: 8rem;
+    }
+  }
+
+  @media (width > 64em) {
+    section {
+      --margin: 10rem;
+    }
   }
 
   section:first-child {
-    --margin: 1rem;
-    margin-top: calc(var(--margin) + var(--header-bottom-offset));
+    margin-top: calc((var(--margin) / 2) + var(--header-bottom-offset));
   }
 
   @media (width > 54em) {
