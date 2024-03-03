@@ -54,7 +54,10 @@ const t = useTranslations(lang);
 
   .greetings {
     font-size: 1.5rem;
-    color: var(--c-primary);
+    background: linear-gradient(120deg, var(--c-accent), var(--c-primary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   @media (width > 54em) {

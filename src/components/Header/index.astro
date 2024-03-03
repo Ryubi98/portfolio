@@ -13,15 +13,13 @@ const { links } = Astro.props;
 ---
 
 <header>
-  <div class="background">
-    <Wrapper>
-      <div class="row">
-        <ToggleLang />
-        <ToggleTheme />
-      </div>
-    </Wrapper>
-  </div>
-  <Navbar links={links} />
+  <Wrapper>
+    <div class="row">
+      <ToggleLang />
+      <Navbar links={links} />
+      <ToggleTheme />
+    </div>
+  </Wrapper>
 </header>
 
 <style>
@@ -32,12 +30,8 @@ const { links } = Astro.props;
     left: 0;
     right: 0;
     line-height: 1;
-  }
-
-  .background {
     padding-block: 1rem;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: var(--c-background-gradient-from);
   }
 
   .row {
