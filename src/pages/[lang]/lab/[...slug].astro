@@ -1,6 +1,10 @@
 ---
+import Link from '@components/Link.astro';
+import Paragraph from '@components/Paragraph.astro';
+import Section from '@components/Section.astro';
 import MainLayout from '@layouts/MainLayout/index.astro';
 import { getLangStaticPaths, useTranslations } from '@utils/i18n/utils';
+import { Icon } from 'astro-icon/components';
 import { getCollection, getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -24,11 +28,35 @@ const t = useTranslations(lang);
 const labItem = await getEntry('lab', slug);
 const { title, descriptionTranslationKey } = labItem.data;
 const { Content } = await labItem.render();
+
+const backUrl = Astro.url.pathname.split('/').slice(0, -1).join('/');
 ---
 
 <MainLayout title="Antonin Ginet • Lab" description={t('head.lab.description')}>
-  <p>Go back to page</p>
-  <p>{title}</p>
-  <p>{t(descriptionTranslationKey)}</p>
-  <Content />
+  <Section title={title}>
+    <Link href={backUrl} format="button">
+      <Icon name="mdi:arrow-left-bold" />
+      <span>
+        {t('lab.back')}
+      </span>
+    </Link>
+    <Paragraph class="description">
+      {t(descriptionTranslationKey)}
+    </Paragraph>
+    <div class="content">
+      <Content />
+    </div>
+  </Section>
 </MainLayout>
+
+<style>
+  .description {
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+  }
+</style>
