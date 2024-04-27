@@ -7,12 +7,12 @@
       "name": "Docker"
     },
     {
-      "icon": "simple-icons:githubactions",
-      "name": "GitHub Actions"
-    },
-    {
       "icon": "simple-icons:nginx",
       "name": "Nginx"
+    },
+    {
+      "icon": "simple-icons:githubactions",
+      "name": "GitHub Actions"
     }
   ]
 }
