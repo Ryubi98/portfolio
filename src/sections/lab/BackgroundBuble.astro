@@ -1,0 +1,33 @@
+<button class="buble-button">Lorem ipsum</button>
+
+<style>
+  .buble-button {
+    --font-size: 2.25rem;
+    --ratio: 1.8;
+    position: relative;
+    padding: calc(var(--font-size) / var(--ratio));
+    color: var(--c-text);
+    font-size: var(--font-size);
+    background: unset;
+    margin-inline: auto;
+  }
+
+  .buble-button::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: calc(var(--font-size) * var(--ratio));
+    width: calc(var(--font-size) * var(--ratio));
+    background-color: var(--c-secondary);
+    border-radius: calc(var(--font-size) * var(--ratio));
+    transition: width 0.3s ease-in-out;
+  }
+
+  .buble-button:hover::before {
+    width: 100%;
+  }
+</style>
