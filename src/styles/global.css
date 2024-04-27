@@ -1,37 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
-  --light-background-gradient-from: #3a63c3;
-  --light-background-gradient-to: #8ea1ce;
-  --dark-background-gradient-from: #182848;
-  --dark-background-gradient-to: #213f84;
-  --c-background-gradient-from: var(--light-background-gradient-from);
-  --c-background-gradient-to: var(--light-background-gradient-to);
-  --c-background-gradient: linear-gradient(
-    0deg,
-    var(--c-background-gradient-to) 10%,
-    var(--c-background-gradient-from) 90%
-  );
+  --light-background: #e0e8f3;
+  --dark-background: #192b51;
+  --c-background: var(--light-background);
 
-  --light-text-gradient: hsl(200, 8%, 7%, 100%);
-  --dark-text-gradient: hsl(215, 81%, 8%, 100%);
-  --c-text-gradient: var(--light-text-gradient);
-
-  --light-text: hsl(200, 8%, 7%, 100%);
-  --dark-text: hsl(0, 0%, 100%, 100%);
+  --light-text: #030f22;
+  --dark-text: #e9e9f6;
   --c-text: var(--light-text);
 
-  --light-primary: hsl(206, 98%, 52%, 100%);
-  --dark-primary: hsl(206, 99%, 35%, 100%);
+  --light-primary: #4d92f4;
+  --dark-primary: #0165b2;
   --c-primary: var(--light-primary);
 
-  --light-secondary: hsl(205, 67%, 47%, 100%);
-  --dark-secondary: hsl(206, 77%, 21%, 100%);
+  --light-accent: #82a3f1;
+  --dark-accent: #21548f;
+  --c-accent: var(--light-accent);
+
+  --light-secondary: #90cefd;
+  --dark-secondary: #4c799d;
   --c-secondary: var(--light-secondary);
 
-  --light-accent: hsl(206, 83%, 74%, 100%);
-  --dark-accent: hsl(206, 42%, 58%, 100%);
-  --c-accent: var(--light-accent);
+  --light-content-background: #c9d9f1;
+  --dark-content-background: #2e4472;
+  --c-content-background: var(--light-content-background);
 
   --header-padding-block: 1rem;
   --header-max-content-padding: 0.625rem;
@@ -57,13 +49,12 @@
 }
 
 :root.dark-theme {
-  --c-background-gradient-from: var(--dark-background-gradient-from);
-  --c-background-gradient-to: var(--dark-background-gradient-to);
-  --c-text-gradient: var(--dark-text-gradient);
+  --c-background: var(--dark-background);
   --c-text: var(--dark-text);
   --c-primary: var(--dark-primary);
-  --c-secondary: var(--dark-secondary);
   --c-accent: var(--dark-accent);
+  --c-secondary: var(--dark-secondary);
+  --c-content-background: var(--dark-content-background);
 }
 
 *,
@@ -115,7 +106,7 @@ body {
   font-family: 'Lato', sans-serif;
   line-height: 1.6;
   color: var(--c-text);
-  background-image: var(--c-background-gradient);
+  background-color: var(--c-background);
   display: flex;
   flex-direction: column;
 }
