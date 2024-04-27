@@ -4,7 +4,7 @@
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
-      } else {
+      } else if (entry.target instanceof HTMLElement && entry.target.offsetTop > window.scrollY) {
         entry.target.classList.remove('show');
       }
     });
