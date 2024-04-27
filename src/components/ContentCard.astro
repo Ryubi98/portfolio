@@ -64,7 +64,8 @@ const { class: className, img, imgAlt, title, content, subItems, links, ...rest 
   }
 
   article h3 {
-    margin-block: 0.375rem;
+    margin-top: 1rem;
+    margin-bottom: 0.375rem;
     font-size: 1.5rem;
   }
 
@@ -76,8 +77,15 @@ const { class: className, img, imgAlt, title, content, subItems, links, ...rest 
     margin-top: auto;
   }
 
-  article ul {
+  article ul:first-child {
     margin-top: 1rem;
+  }
+
+  article ul:nth-child(2) {
+    margin-top: 0.625rem;
+  }
+
+  article ul {
     display: flex;
     gap: 0.25rem;
     flex-wrap: wrap;
