@@ -9,19 +9,19 @@
   --dark-text: #e9e9f6;
   --c-text: var(--light-text);
 
-  --light-primary: #4d92f4;
-  --dark-primary: #0165b2;
+  --light-primary: #4c99d3;
+  --dark-primary: #0275cd;
   --c-primary: var(--light-primary);
 
-  --light-accent: #82a3f1;
-  --dark-accent: #21548f;
+  --light-accent: #6fabe9;
+  --dark-accent: #1a5ca9;
   --c-accent: var(--light-accent);
 
-  --light-secondary: #9cc2df;
-  --dark-secondary: #4c799d;
+  --light-secondary: #819bc1;
+  --dark-secondary: #355d7d;
   --c-secondary: var(--light-secondary);
 
-  --light-content-background: #c9d9f1;
+  --light-content-background: #bdd4f7;
   --dark-content-background: #2e4472;
   --c-content-background: var(--light-content-background);
 
