@@ -1,0 +1,60 @@
+---
+import MouseScroll from './MouseScroll.astro';
+
+interface Props {
+  show: boolean;
+}
+
+const { show } = Astro.props;
+---
+
+<div>
+  <slot />
+  {show && <MouseScroll class="mouse-scroll" />}
+</div>
+
+<style>
+  div {
+    position: relative;
+  }
+
+  .mouse-scroll {
+    display: none;
+    position: absolute;
+    bottom: calc(var(--navbar-top-offset) + 1rem);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  @media (width > 54em) {
+    .mouse-scroll {
+      display: block;
+    }
+  }
+
+  .mouse-scroll.display {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const mouseScroll = document.querySelector('.mouse-scroll');
+  if (mouseScroll) {
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            mouseScroll.classList.add('display');
+          } else {
+            mouseScroll.classList.remove('display');
+          }
+        });
+      },
+      {
+        rootMargin: '-85% 0px 0px 0px',
+      }
+    );
+    intersectionObserver.observe(mouseScroll);
+  }
+</script>

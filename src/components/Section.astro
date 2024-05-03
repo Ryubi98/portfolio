@@ -1,6 +1,7 @@
 ---
 import Wrapper from '@components/Wrapper.astro';
 import { type TranslatedMessage } from '@utils/i18n/utils';
+import MouseScrollWrapper from './MouseScroll/MouseScrollWrapper.astro';
 
 interface Props {
   id?: string;
@@ -12,12 +13,14 @@ interface Props {
 const { id, title, showTitle = true, fullPage = false } = Astro.props;
 ---
 
-<section id={id} class:list={[{ 'full-page': fullPage }]}>
-  <Wrapper>
-    {title && showTitle && <h2 class="apparition">{title}</h2>}
-    <slot />
-  </Wrapper>
-</section>
+<MouseScrollWrapper show={fullPage}>
+  <section id={id} class:list={[{ 'full-page': fullPage }]}>
+    <Wrapper>
+      {title && showTitle && <h2 class="apparition">{title}</h2>}
+      <slot />
+    </Wrapper>
+  </section>
+</MouseScrollWrapper>
 
 <style>
   section {
