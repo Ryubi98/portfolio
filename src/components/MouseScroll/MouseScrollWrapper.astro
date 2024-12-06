@@ -19,9 +19,10 @@ const { show } = Astro.props;
   }
 
   .mouse-scroll {
+    --margin: 1rem;
     display: none;
     position: absolute;
-    bottom: calc(var(--navbar-top-offset) + 1rem);
+    bottom: calc(var(--navbar-top-offset) + var(--margin));
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -30,6 +31,12 @@ const { show } = Astro.props;
   @media (width > 54em) {
     .mouse-scroll {
       display: block;
+    }
+  }
+
+  @media (width > 64em) {
+    .mouse-scroll {
+      --margin: 2rem;
     }
   }
 
