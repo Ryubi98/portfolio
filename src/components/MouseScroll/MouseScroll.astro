@@ -37,7 +37,7 @@ const { class: className, ...rest } = Astro.props;
     border-right: calc(var(--size) / 12) solid var(--c-text);
     border-bottom: calc(var(--size) / 12) solid var(--c-text);
     transform: translate(calc(var(--size) / 4)) rotate(45deg);
-    animation: arrow-down-animation 2s infinite calc(0.5s + var(--index) * 0.2s);
+    animation: arrow-down-animation 1.75s infinite calc(0.4s + var(--index) * 0.2s);
   }
 
   .mouse-scroll .arrow-down:first-child {
@@ -49,7 +49,7 @@ const { class: className, ...rest } = Astro.props;
     width: calc(var(--size) / 12);
     margin: calc(var(--size) / 4) auto;
     background-color: var(--c-text);
-    animation: scroll-animation 2s infinite;
+    animation: scroll-animation 1.75s infinite;
   }
 
   @keyframes arrow-down-animation {
