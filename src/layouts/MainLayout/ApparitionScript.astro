@@ -4,8 +4,6 @@
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
-      } else if (entry.boundingClientRect.top > window.innerHeight) {
-        entry.target.classList.remove('show');
       }
     });
   });
