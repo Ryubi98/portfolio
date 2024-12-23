@@ -27,10 +27,8 @@
       "name": "UIKit"
     }
   ],
-  "links": [
-    {
-      "icon": "simple-icons:gitlab",
-      "href": "https://gitlab.com/learn-and-run/plic"
-    }
-  ]
+  "link": {
+    "icon": "simple-icons:gitlab",
+    "href": "https://gitlab.com/learn-and-run/plic"
+  }
 }

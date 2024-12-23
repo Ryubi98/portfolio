@@ -37,7 +37,7 @@ const projects = (await getCollection('projects'))
           title={project.title}
           content={t(project.contentTranslationKey)}
           subItems={project.technologies}
-          links={project.links}
+          link={project.link}
         />
       </li>
     ))

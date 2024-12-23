@@ -15,10 +15,8 @@
       "name": "Typescript"
     }
   ],
-  "links": [
-    {
-      "icon": "simple-icons:github",
-      "href": "https://github.com/Ryubi98/portfolio"
-    }
-  ]
+  "link": {
+    "icon": "simple-icons:github",
+    "href": "https://github.com/Ryubi98/portfolio"
+  }
 }

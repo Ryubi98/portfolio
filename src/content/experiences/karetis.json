@@ -27,10 +27,8 @@
       "name": "PostgreSQL"
     }
   ],
-  "links": [
-    {
-      "icon": "mdi:web",
-      "href": "https://www.karetis.com"
-    }
-  ]
+  "link": {
+    "icon": "mdi:web",
+    "href": "https://www.karetis.com"
+  }
 }

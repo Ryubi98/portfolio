@@ -25,12 +25,10 @@ const labItems = (
             class="apparition"
             title={labItem.title}
             content={t(labItem.descriptionTranslationKey)}
-            links={[
-              {
-                icon: 'mdi:eye',
-                href: getUrlFromDestinationAndLang(`${getDestinationFromUrl(Astro.url)}${labItem.id}/`, lang),
-              },
-            ]}
+            link={{
+              icon: 'mdi:eye',
+              href: getUrlFromDestinationAndLang(`${getDestinationFromUrl(Astro.url)}${labItem.id}/`, lang),
+            }}
           />
         ))
       }
