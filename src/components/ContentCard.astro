@@ -1,20 +1,25 @@
 ---
 import Link from '@components/Link.astro';
+import { dateToShortMonthYear } from '@utils/dates';
 import { prefixBase } from '@utils/global';
-import { type TranslatedMessage } from '@utils/i18n/utils';
+import { type LangParams, type TranslatedMessage } from '@utils/i18n/utils';
 import { Icon } from 'astro-icon/components';
+
+const { lang } = Astro.params as LangParams;
 
 interface Props {
   class?: string;
   img?: string;
   imgAlt?: string;
   title?: TranslatedMessage;
+  dateStart: Date;
+  dateEnd?: Date | 'today';
   content?: TranslatedMessage;
   subItems?: Array<{ icon: string; name: TranslatedMessage }>;
   link?: { icon: string; href: string };
 }
 
-const { class: className, img, imgAlt, title, content, subItems, link, ...rest } = Astro.props;
+const { class: className, img, imgAlt, title, dateStart, dateEnd, content, subItems, link, ...rest } = Astro.props;
 ---
 
 <article class={className} {...rest}>
@@ -22,6 +27,9 @@ const { class: className, img, imgAlt, title, content, subItems, link, ...rest }
     {img && imgAlt && <img src={`${prefixBase}${img}`} alt={imgAlt} />}
     <div class="title">
       {title && <h3>{title}</h3>}
+      <p class="date">
+        {dateToShortMonthYear(dateStart, lang)}{dateEnd && ` - ${dateToShortMonthYear(dateEnd, lang)}`}
+      </p>
     </div>
     {
       link && (
@@ -84,6 +92,10 @@ const { class: className, img, imgAlt, title, content, subItems, link, ...rest }
 
   .title h3 {
     font-size: 1.125rem;
+  }
+
+  .title .date {
+    font-size: 0.75rem;
   }
 
   .content {
