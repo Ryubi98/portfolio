@@ -31,7 +31,8 @@
     "social.github": "GitHub",
     "social.gitlab": "GitLab",
     "social.leetcode": "LeetCode",
-    "social.linkedin": "LinkedIn"
+    "social.linkedin": "LinkedIn",
+    "utils.date.today": "aujourd'hui"
   },
   "en": {
     "contact.text": "Feel free to contact me by email, through my social networks, or simply download my resume.",
@@ -55,6 +56,7 @@
     "projects.learnandrun.content": "Development of a serious game for middle school students with a website and mobile tracking applications for parents and children.",
     "projects.portfolio.content": "Creation of my new portfolio.",
     "projects.title": "Projects",
-    "social.cv": "Download resume"
+    "social.cv": "Download resume",
+    "utils.date.today": "Now"
   }
 }
