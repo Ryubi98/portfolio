@@ -38,15 +38,3 @@ export const projectSchema = z.object({
   links: z.array(z.object({ icon: z.string(), href: z.string() })).optional(),
 });
 export type Project = z.infer<typeof projectSchema>;
-
-export const skillSchema = z.object({
-  order: z.number(),
-  title: z.string(),
-  list: z.array(
-    z.object({
-      icon: z.string(),
-      name: z.string(),
-    })
-  ),
-});
-export type Skill = z.infer<typeof skillSchema>;

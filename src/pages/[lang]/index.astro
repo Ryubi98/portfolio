@@ -6,7 +6,6 @@ import Experiences from '@sections/index/Experiences.astro';
 import Home from '@sections/index/Home.astro';
 import Lab from '@sections/index/Lab.astro';
 import Projects from '@sections/index/Projects.astro';
-import Skills from '@sections/index/Skills.astro';
 import { getLangStaticPaths, useTranslations, type LangParams, type TranslatedMessage } from '@utils/i18n/utils';
 import { type AstroComponentFactory } from 'astro/runtime/server/index.js';
 
@@ -23,7 +22,6 @@ type Section = {
 
 const sections: Section[] = [
   { id: 'home', value: t('home.title'), Component: Home },
-  { id: 'skills', value: t('skills.title'), Component: Skills },
   {
     id: 'experiences',
     value: t('experiences.title'),
