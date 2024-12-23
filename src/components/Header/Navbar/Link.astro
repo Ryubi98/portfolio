@@ -22,9 +22,12 @@ const { href, value, icon } = Astro.props;
     justify-content: center;
     align-items: center;
     font-size: 1.125rem;
-    padding: 0.625rem;
-    background-color: var(--c-primary);
-    border-radius: 0.3125rem;
+    padding: 0.625rem 1rem;
+    background-color: var(--c-action-background);
+    border-width: 0.0625rem;
+    border-style: solid;
+    border-color: var(--c-border);
+    border-radius: 0.375rem;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -40,13 +43,13 @@ const { href, value, icon } = Astro.props;
       font-size: 1rem;
       padding: 0;
       background-color: transparent;
-      border-radius: 0;
+      border: none;
     }
   }
 
   a:hover,
   a:focus {
-    background-color: var(--c-accent);
+    background-color: var(--c-primary);
     transform: scale(1.05);
   }
 
@@ -54,7 +57,7 @@ const { href, value, icon } = Astro.props;
     a:hover,
     a:focus {
       background-color: transparent;
-      color: var(--c-accent);
+      color: var(--c-primary);
     }
   }
 

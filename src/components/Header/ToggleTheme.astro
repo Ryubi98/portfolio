@@ -18,11 +18,14 @@ import { Icon } from 'astro-icon/components';
     position: relative;
     display: flex;
     font-size: 1.125rem;
-    padding: 0.625rem;
-    border-radius: 50%;
+    padding: 0.625rem 1rem;
     cursor: pointer;
     color: var(--c-text);
-    background-color: var(--c-primary);
+    background-color: var(--c-action-background);
+    border-width: 0.0625rem;
+    border-style: solid;
+    border-color: var(--c-border);
+    border-radius: 0.375rem;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -35,7 +38,7 @@ import { Icon } from 'astro-icon/components';
 
   button:hover,
   button:focus {
-    background-color: var(--c-accent);
+    background-color: var(--c-primary);
     transform: scale(1.05);
   }
 
