@@ -31,10 +31,8 @@
       "name": "SQL Server"
     }
   ],
-  "links": [
-    {
-      "icon": "simple-icons:gitlab",
-      "href": "https://gitlab.com/learn-and-run/cloudvault"
-    }
-  ]
+  "link": {
+    "icon": "simple-icons:gitlab",
+    "href": "https://gitlab.com/learn-and-run/cloudvault"
+  }
 }

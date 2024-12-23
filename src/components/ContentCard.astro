@@ -1,29 +1,48 @@
 ---
 import Link from '@components/Link.astro';
+import { dateToShortMonthYear } from '@utils/dates';
 import { prefixBase } from '@utils/global';
-import { type TranslatedMessage } from '@utils/i18n/utils';
+import { type LangParams, type TranslatedMessage } from '@utils/i18n/utils';
 import { Icon } from 'astro-icon/components';
+
+const { lang } = Astro.params as LangParams;
 
 interface Props {
   class?: string;
   img?: string;
   imgAlt?: string;
   title?: TranslatedMessage;
+  dateStart: Date;
+  dateEnd?: Date | 'today';
   content?: TranslatedMessage;
   subItems?: Array<{ icon: string; name: TranslatedMessage }>;
-  links?: Array<{ icon: string; href: string }>;
+  link?: { icon: string; href: string };
 }
 
-const { class: className, img, imgAlt, title, content, subItems, links, ...rest } = Astro.props;
+const { class: className, img, imgAlt, title, dateStart, dateEnd, content, subItems, link, ...rest } = Astro.props;
 ---
 
 <article class={className} {...rest}>
-  {img && imgAlt && <img src={`${prefixBase}${img}`} alt={imgAlt} />}
-  {title && <h3>{title}</h3>}
-  {content && <p>{content}</p>}
+  <header>
+    {img && imgAlt && <img src={`${prefixBase}${img}`} alt={imgAlt} />}
+    <div class="title">
+      {title && <h3>{title}</h3>}
+      <p class="date">
+        {dateToShortMonthYear(dateStart, lang)}{dateEnd && ` - ${dateToShortMonthYear(dateEnd, lang)}`}
+      </p>
+    </div>
+    {
+      link && (
+        <Link href={link.href} target={link.href.startsWith('/') ? undefined : '_blank'} format="button">
+          <Icon name={link.icon} />
+        </Link>
+      )
+    }
+  </header>
+  {content && <p class="content">{content}</p>}
   {
-    (subItems || links) && (
-      <div>
+    subItems && (
+      <aside>
         {subItems && (
           <ul class="subitems">
             {subItems.map(({ icon, name }) => (
@@ -34,16 +53,7 @@ const { class: className, img, imgAlt, title, content, subItems, links, ...rest 
             ))}
           </ul>
         )}
-        {links && (
-          <ul class="links">
-            {links.map(({ icon, href }) => (
-              <Link href={href} target={href.startsWith('/') ? undefined : '_blank'} format="button">
-                <Icon name={icon} />
-              </Link>
-            ))}
-          </ul>
-        )}
-      </div>
+      </aside>
     )
   }
 </article>
@@ -61,43 +71,50 @@ const { class: className, img, imgAlt, title, content, subItems, links, ...rest 
     border-radius: 0.375rem;
   }
 
-  article img {
+  header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+  }
+
+  header img {
     max-width: 3rem;
     border-width: 0.0625rem;
     border-style: solid;
     border-color: var(--c-border);
     border-radius: 50%;
-    margin-bottom: 1rem;
   }
 
-  article h3 {
-    margin-bottom: 0.375rem;
-    font-size: 1.5rem;
+  .title {
+    flex: 1;
   }
 
-  article p {
+  .title h3 {
+    font-size: 1.125rem;
+  }
+
+  .title .date {
+    font-size: 0.75rem;
+  }
+
+  .content {
     font-size: 0.875rem;
-  }
-
-  article div {
-    margin-top: auto;
-  }
-
-  article ul {
-    display: flex;
-    gap: 0.25rem;
-    flex-wrap: wrap;
-  }
-
-  article .subitems {
     margin-top: 1rem;
   }
 
-  article .links {
-    margin-top: 0.625rem;
+  aside {
+    margin-top: auto;
   }
 
-  article li {
+  .subitems {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    margin-top: 1.125rem;
+  }
+
+  .subitems li {
     font-size: 0.75rem;
     border-radius: 1rem;
     padding: 0.0625rem 0.625rem;
@@ -107,7 +124,7 @@ const { class: className, img, imgAlt, title, content, subItems, links, ...rest 
     gap: 0.375rem;
   }
 
-  article .subitems span {
+  .subitems li span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

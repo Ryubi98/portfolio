@@ -26,14 +26,13 @@
     "projects.learnandrun.content": "Création d'un serious game pour collégiens avec un site web et des applications mobiles de suivi pour les parents et enfants.",
     "projects.portfolio.content": "Création de mon nouveau portfolio.",
     "projects.title": "Projets",
-    "skills.text": "Ma capacité à m'adapter rapidement à différents contextes de développement est un de mes atouts majeurs. Voici un aperçu des compétences sur lesquelles je travaille en ce moment.",
-    "skills.title": "Compétences",
     "social.cv": "Télécharger CV",
     "social.email": "antonin.ginet98@gmail.com",
     "social.github": "GitHub",
     "social.gitlab": "GitLab",
     "social.leetcode": "LeetCode",
-    "social.linkedin": "LinkedIn"
+    "social.linkedin": "LinkedIn",
+    "utils.date.today": "aujourd'hui"
   },
   "en": {
     "contact.text": "Feel free to contact me by email, through my social networks, or simply download my resume.",
@@ -57,8 +56,7 @@
     "projects.learnandrun.content": "Development of a serious game for middle school students with a website and mobile tracking applications for parents and children.",
     "projects.portfolio.content": "Creation of my new portfolio.",
     "projects.title": "Projects",
-    "skills.text": "My ability to quickly adapt to various development contexts is one of my major strengths. Here is an overview of the skills I am currently working on.",
-    "skills.title": "Skills",
-    "social.cv": "Download resume"
+    "social.cv": "Download resume",
+    "utils.date.today": "Now"
   }
 }

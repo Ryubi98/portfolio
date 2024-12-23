@@ -24,13 +24,12 @@ const labItems = (
           <ContentCard
             class="apparition"
             title={labItem.title}
+            dateStart={labItem.date}
             content={t(labItem.descriptionTranslationKey)}
-            links={[
-              {
-                icon: 'mdi:eye',
-                href: getUrlFromDestinationAndLang(`${getDestinationFromUrl(Astro.url)}${labItem.id}/`, lang),
-              },
-            ]}
+            link={{
+              icon: 'mdi:eye',
+              href: getUrlFromDestinationAndLang(`${getDestinationFromUrl(Astro.url)}${labItem.id}/`, lang),
+            }}
           />
         ))
       }

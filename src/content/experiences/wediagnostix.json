@@ -19,10 +19,8 @@
       "name": "SQL Server"
     }
   ],
-  "links": [
-    {
-      "icon": "mdi:web",
-      "href": "https://wediagnostix.com"
-    }
-  ]
+  "link": {
+    "icon": "mdi:web",
+    "href": "https://wediagnostix.com"
+  }
 }

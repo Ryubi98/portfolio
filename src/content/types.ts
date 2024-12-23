@@ -12,7 +12,7 @@ export const experienceSchema = z.object({
     (value) => typeof value === 'string' && value in translations[defaultLang]
   ),
   technologies: z.array(z.object({ icon: z.string(), name: z.string() })).optional(),
-  links: z.array(z.object({ icon: z.string(), href: z.string() })).optional(),
+  link: z.object({ icon: z.string(), href: z.string() }).optional(),
 });
 export type Experience = z.infer<typeof experienceSchema>;
 
@@ -35,18 +35,6 @@ export const projectSchema = z.object({
     (value) => typeof value === 'string' && value in translations[defaultLang]
   ),
   technologies: z.array(z.object({ icon: z.string(), name: z.string() })).optional(),
-  links: z.array(z.object({ icon: z.string(), href: z.string() })).optional(),
+  link: z.object({ icon: z.string(), href: z.string() }).optional(),
 });
 export type Project = z.infer<typeof projectSchema>;
-
-export const skillSchema = z.object({
-  order: z.number(),
-  title: z.string(),
-  list: z.array(
-    z.object({
-      icon: z.string(),
-      name: z.string(),
-    })
-  ),
-});
-export type Skill = z.infer<typeof skillSchema>;

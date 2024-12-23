@@ -35,9 +35,11 @@ const projects = (await getCollection('projects'))
           img={project.img}
           imgAlt={project.imgAlt}
           title={project.title}
+          dateStart={project.dateStart}
+          dateEnd={project.dateEnd}
           content={t(project.contentTranslationKey)}
           subItems={project.technologies}
-          links={project.links}
+          link={project.link}
         />
       </li>
     ))
